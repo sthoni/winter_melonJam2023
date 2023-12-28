@@ -1,7 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8l4ht0of3l0k"]
+[gd_scene load_steps=4 format=3 uid="uid://c8l4ht0of3l0k"]
 
-[ext_resource type="PackedScene" uid="uid://kbea53ahbnb4" path="res://character.tscn" id="1_xkkck"]
+[ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="1_nq6ga"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ft8l"]
+texture = ExtResource("1_nq6ga")
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
 
-[node name="Node2D" parent="." instance=ExtResource("1_xkkck")]
+[sub_resource type="TileSet" id="TileSet_oqrxs"]
+sources/0 = SubResource("TileSetAtlasSource_6ft8l")
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_oqrxs")
+format = 2
