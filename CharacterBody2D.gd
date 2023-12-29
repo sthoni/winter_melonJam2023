@@ -3,7 +3,8 @@ class_name Character
 
 @export var speed = 400 # speed in pixels/sec
 @export var rotation_speed = 1.5
-@onready var Bullet = preload("res://projectile.tscn")
+@onready var Charm = preload("res://charms/charm.tscn")
+@onready var charmspeed = 50
 var target = Vector2.ZERO
 var rotation_direction = 0
 var enchanted = false
@@ -20,10 +21,12 @@ func rot_speed():
 	return rots
 
 func shoot():
-	var b = Bullet.instantiate()
-	owner.add_child(b)
+	charmspeed = (charmspeed + 50) % 300
+	var b = Charm.instantiate()
+	b.speed = charmspeed
 	b.transform = $Wand.global_transform
 	b.scale = Vector2(-1,-1)
+	owner.add_child(b)
 	
 func get_input():
 	#rotation_direction = Input.get_axis("left", "right")
