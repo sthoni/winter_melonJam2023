@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var speed = 400 # speed in pixels/sec
 @export var rotation_speed = 1.5
+@onready var Bullet = preload("res://projectile.tscn")
+#@export var Bullet : PackedScene
 var target = Vector2.ZERO
 var rotation_direction = 0
 var enchanted = false
@@ -17,6 +19,11 @@ func rot_speed():
 	var rots = STANDARD_ROT_SPEED * magicspell()
 	return rots
 
+func shoot():
+	var b = Bullet.instantiate()
+	owner.owner.add_child(b)
+	b.transform = $Wand.global_transform
+
 func get_input():
 	#rotation_direction = Input.get_axis("left", "right")
 	#velocity = transform.x * Input.get_axis("down", "up") * speed
@@ -24,7 +31,9 @@ func get_input():
 	target = Input.get_axis("ui_turn_left", "ui_turn_right")
 	enchanted = Input.is_action_pressed("ui_enchant")
 	var input_direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = input_direction * speed
+	velocity = input_direction * speed    
+	if Input.is_action_just_pressed("ui_shoot"):
+		shoot()
 
 func _physics_process(delta):
 	get_input()
