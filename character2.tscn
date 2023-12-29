@@ -3,10 +3,12 @@
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_gg5ag"]
 [ext_resource type="Texture2D" uid="uid://ccap5h1w0knhr" path="res://icon.svg" id="2_gdvrf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfyvk"]
-size = Vector2(67.5, 69)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mk2bv"]
+radius = 25.1794
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_gg5ag")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -14,7 +16,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_gdvrf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bfyvk")
+shape = SubResource("CircleShape2D_mk2bv")
 
 [node name="Wand" type="Marker2D" parent="."]
 position = Vector2(0, -65)

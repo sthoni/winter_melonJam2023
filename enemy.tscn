@@ -5,15 +5,16 @@
 [ext_resource type="Script" path="res://EnemyMovementController.gd" id="3_eyygj"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="4_bk7j2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a4tyv"]
-radius = 21.0
-height = 48.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_kbwjk"]
+radius = 20.0
 
-[node name="Enemy" type="Area2D" groups=["mobs"]]
+[node name="Enemy" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_kc1q1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_a4tyv")
+shape = SubResource("CircleShape2D_kbwjk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_daqqq")
