@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var movement_controller: EnemyMovementController = $EnemyMovementController
+@onready var health_component: HealthComponent = $HealthComponent
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

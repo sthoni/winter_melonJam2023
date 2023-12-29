@@ -9,7 +9,7 @@
 radius = 21.0
 height = 48.0
 
-[node name="Enemy" type="Area2D"]
+[node name="Enemy" type="Area2D" groups=["mobs"]]
 script = ExtResource("1_kc1q1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
