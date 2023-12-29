@@ -3,13 +3,13 @@ class_name Character
 
 @export var speed = 400 # speed in pixels/sec
 @export var rotation_speed = 1.5
-@onready var Charm = preload("res://charms/charm.tscn")
-@onready var charmspeed = 50
 var target = Vector2.ZERO
 var rotation_direction = 0
 var enchanted = false
 var enchant = false
 const STANDARD_ROT_SPEED = 0.1
+
+@onready var wand := $Wand
 
 func magicspell():
 	if enchanted:
@@ -21,12 +21,7 @@ func rot_speed():
 	return rots
 
 func shoot():
-	charmspeed = (charmspeed + 50) % 300
-	var b = Charm.instantiate()
-	b.speed = charmspeed
-	b.transform = $Wand.global_transform
-	b.scale = Vector2(-1,-1)
-	owner.add_child(b)
+	wand.request_shoot()
 	
 func get_input():
 	#rotation_direction = Input.get_axis("left", "right")
