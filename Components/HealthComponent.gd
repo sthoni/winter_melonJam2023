@@ -4,11 +4,11 @@ class_name HealthComponent
 signal health_depleted
 
 @export var MAX_HEALTH: int
-var current_health: int
+@onready var current_health: int = MAX_HEALTH
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	current_health = MAX_HEALTH
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
