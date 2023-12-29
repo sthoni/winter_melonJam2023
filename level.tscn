@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8l4ht0of3l0k"]
+[gd_scene load_steps=7 format=3 uid="uid://c8l4ht0of3l0k"]
 
 [ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="1_nq6ga"]
+[ext_resource type="Script" path="res://level.gd" id="1_uemux"]
 [ext_resource type="PackedScene" uid="uid://kh3gp6km022u" path="res://enemy.tscn" id="2_pymag"]
 [ext_resource type="PackedScene" uid="uid://d4c178xwy5h66" path="res://character2.tscn" id="3_sk4ky"]
 
@@ -89,6 +90,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_6ft8l")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_uemux")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_oqrxs")

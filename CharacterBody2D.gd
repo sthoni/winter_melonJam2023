@@ -22,7 +22,7 @@ func rot_speed():
 
 func shoot():
 	var b = Bullet.instantiate()
-	owner.owner.add_child(b)
+	owner.add_child(b)
 	b.transform = $Wand.global_transform
 
 func get_input():

@@ -1,11 +1,10 @@
 extends Area2D
 
-var player: Character	
-@export var SPEED: float = 1.0
+@onready var movement_controller: EnemyMovementController = $EnemyMovementController
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player = get_tree().get_first_node_in_group("player")
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,6 +13,8 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	look_at(player.global_position)
-	var direction = player.global_position - self.position
-	self.position += direction.normalized() * SPEED
+	self.position = movement_controller.calculate_movement(self.position)
+
+
+func _on_health_component_health_depleted():
+	queue_free()

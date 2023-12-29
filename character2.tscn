@@ -15,3 +15,8 @@ texture = ExtResource("2_gdvrf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bfyvk")
+
+[node name="Wand" type="Marker2D" parent="."]
+position = Vector2(0, -65)
+scale = Vector2(-1.64569, 15.6922)
+gizmo_extents = 37.0
