@@ -12,8 +12,7 @@ size = Vector2(117, 118)
 script = ExtResource("1_4q0yo")
 
 [node name="Wand" type="Marker2D" parent="CharacterBody2D"]
-position = Vector2(0, -65)
-scale = Vector2(-1.64569, 15.6922)
+position = Vector2(1, -65)
 gizmo_extents = 37.0
 
 [node name="Icon" type="Sprite2D" parent="CharacterBody2D"]
