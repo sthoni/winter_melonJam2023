@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Character
 
 @export var speed = 400 # speed in pixels/sec
 @export var rotation_speed = 1.5
