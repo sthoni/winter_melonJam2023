@@ -40,6 +40,7 @@ func _physics_process(delta):
 	get_input()
 	rotation += target * rot_speed()
 	move_and_slide()
+	
 #
 #const SPEED = 300.0
 #const JUMP_VELOCITY = -400.0

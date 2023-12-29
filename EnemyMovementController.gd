@@ -1,7 +1,8 @@
 extends Node
 class_name EnemyMovementController
 
-@export var SPEED: float = 1.0
+@export var SPEED: float = 50.0
+@onready var current_speed = SPEED
 var player: Character
 
 # Called when the node enters the scene tree for the first time.
@@ -15,5 +16,5 @@ func _process(delta):
 
 func calculate_movement(self_position) -> Vector2:
 	var direction = player.global_position - self_position
-	var new_position = direction.normalized() * SPEED + self_position
-	return new_position
+	var new_velocity = direction.normalized() * current_speed
+	return new_velocity

@@ -103,3 +103,9 @@ position = Vector2(104, 110)
 
 [node name="Enemy" parent="." instance=ExtResource("2_pymag")]
 position = Vector2(127, 213)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_pymag")]
+position = Vector2(348, 272)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_pymag")]
+position = Vector2(475, 183)
