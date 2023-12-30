@@ -15,9 +15,6 @@ extends Node2D
 func _ready():
 	Global.level_finished.connect(next_level)
 	spawn_enemies(active_level)
-	for enemy in enemies_level_1:
-		var new_enemy = spawners[randi() % spawners.size()].create_enemy(enemy)
-		get_parent().add_child.call_deferred(new_enemy)
 	Global.kill.connect(level_up)
 
 
