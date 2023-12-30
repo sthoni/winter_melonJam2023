@@ -11,4 +11,4 @@ script = ExtResource("2_s745v")
 texture = ExtResource("3_xptqv")
 
 [node name="HealthComponent" parent="." index="3"]
-MAX_HEALTH = 5
+MAX_HEALTH = 2

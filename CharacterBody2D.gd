@@ -11,6 +11,10 @@ var enchant = false
 const STANDARD_ROT_SPEED = 0.1
 
 @onready var wand := $Wand
+@onready var health_component := $HealthComponent
+
+func _ready():
+	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 
 func magicspell():
 	if enchanted:
@@ -68,3 +72,7 @@ func _physics_process(delta):
 		#velocity.x = move_toward(velocity.x, 0, SPEED)
 #
 	#move_and_slide()
+
+
+func _on_health_component_health_depleted():
+	get_tree().paused = true
