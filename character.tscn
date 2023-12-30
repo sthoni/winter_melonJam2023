@@ -12,11 +12,11 @@ radius = 19.0
 [node name="Character" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 collision_mask = 5
+platform_floor_layers = 4294967040
 script = ExtResource("1_4q0yo")
 
 [node name="Wand" type="Marker2D" parent="."]
-position = Vector2(20, 22)
-rotation = 1.5708
+position = Vector2(14, -21)
 gizmo_extents = 37.0
 script = ExtResource("2_t0h4w")
 
@@ -24,7 +24,6 @@ script = ExtResource("2_t0h4w")
 stream = ExtResource("3_dw23w")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
 texture = ExtResource("3_e6ta1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
