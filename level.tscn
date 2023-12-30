@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://level.gd" id="1_uemux"]
 [ext_resource type="Texture2D" uid="uid://c1wj4u3jkskwa" path="res://assets/background_tilemap.png" id="2_62umv"]
 [ext_resource type="PackedScene" uid="uid://b430b0ffb7o5l" path="res://character.tscn" id="4_stfbw"]
-[ext_resource type="PackedScene" path="res://enemy_spawner.tscn" id="5_jr0pq"]
-[ext_resource type="PackedScene" uid="uid://yn61wgr3kj72" path="res://level_up.tscn" id="6_hk76x"]
+[ext_resource type="PackedScene" uid="uid://bwyxdrm32x73p" path="res://enemy_spawner.tscn" id="5_jr0pq"]
+[ext_resource type="PackedScene" path="res://level_up.tscn" id="6_hk76x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_newqt"]
 texture = ExtResource("2_62umv")
