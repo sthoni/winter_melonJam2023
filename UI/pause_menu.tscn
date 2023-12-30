@@ -23,14 +23,14 @@ layout_mode = 2
 layout_mode = 2
 text = "Resume"
 
-[node name="New Game" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="BackToMain" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "New Game"
+text = "Back To Main"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackToMain" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
