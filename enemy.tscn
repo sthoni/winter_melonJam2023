@@ -23,5 +23,6 @@ texture = ExtResource("1_daqqq")
 script = ExtResource("3_eyygj")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_bk7j2")]
+MAX_HEALTH = 5
 
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
