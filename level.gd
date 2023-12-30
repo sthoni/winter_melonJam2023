@@ -27,7 +27,7 @@ func level_up():
 func spawn_enemies(level):
 	for enemy in range(active_level+1):
 		var enemy_type = randi() % Global.EnemyType.size()
-		var new_enemy = spawners[randi() % spawners.size()].create_enemy(enemy)
+		var new_enemy = spawners[randi() % spawners.size()].create_enemy(enemy_type)
 		get_parent().add_child.call_deferred(new_enemy)
 
 func next_level():
