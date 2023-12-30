@@ -21,7 +21,7 @@ func rot_speed():
 	return rots
 
 func shoot():
-	wand.request_shoot()
+	wand.request_shoot("RED")
 	
 func get_input():
 	#rotation_direction = Input.get_axis("left", "right")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b430b0ffb7o5l"]
+[gd_scene load_steps=6 format=3 uid="uid://b430b0ffb7o5l"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4q0yo"]
 [ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
+[ext_resource type="AudioStream" uid="uid://h3n7vtrv5sbm" path="res://assets/audio/abracadabra.wav" id="3_dw23w"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lp15p"]
@@ -15,6 +16,9 @@ position = Vector2(20, 22)
 rotation = 1.5708
 gizmo_extents = 37.0
 script = ExtResource("2_t0h4w")
+
+[node name="spell" type="AudioStreamPlayer" parent="Wand"]
+stream = ExtResource("3_dw23w")
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(3, 0)

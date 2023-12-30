@@ -1,24 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://pcian72metwo"]
+[gd_scene load_steps=5 format=3 uid="uid://pcian72metwo"]
 
-[ext_resource type="Texture2D" uid="uid://bf61scxp2t425" path="res://assets/charms/1_red.png" id="1_6r8jw"]
 [ext_resource type="Script" path="res://charms/charm.gd" id="1_jscli"]
+[ext_resource type="Texture2D" uid="uid://bwak22lnr2e1x" path="res://assets/charms/0_default.png" id="2_caui4"]
+[ext_resource type="AudioStream" uid="uid://7sp8nwi6wjl0" path="res://assets/charms/red_soundeffect.wav" id="3_ltg3o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_huajg"]
-size = Vector2(6, 30.6122)
+[sub_resource type="CircleShape2D" id="CircleShape2D_mbwes"]
+radius = 6.9333
 
-[node name="Area2D" type="Area2D"]
+[node name="Charm" type="Area2D"]
 collision_mask = 5
 script = ExtResource("1_jscli")
 metadata/speed = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.10204)
-scale = Vector2(1.00962, 1)
-shape = SubResource("RectangleShape2D_huajg")
-
-[node name="1Red" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, 5)
-texture = ExtResource("1_6r8jw")
+texture = ExtResource("2_caui4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+scale = Vector2(1.00962, 1)
+shape = SubResource("CircleShape2D_mbwes")
+
+[node name="soundeffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ltg3o")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]

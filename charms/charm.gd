@@ -1,10 +1,20 @@
 extends Area2D
+class_name Charm_class
 
 var speed:int
 
 # Class Constructor
 func _init(value=150):
 	self.speed = value
+	
+func set_texture(texture):
+	$Sprite.set_texture(texture)
+
+func set_spell(spell):
+	$spell.set_stream(spell)
+	
+func play_stream(b):
+	$spell.playing = b
 	
 func _physics_process(delta):
 	position += - transform.y * self.speed * delta
