@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://h3n7vtrv5sbm"
-path="res://.godot/imported/abracadabra.wav-6e0a6f11162fac084d8d6ba42f5caabb.sample"
+path="res://.godot/imported/default_spell.wav-7236b7ee5a2e7d55ec22d11a2e0f6d60.sample"
 
 [deps]
 
-source_file="res://assets/audio/abracadabra.wav"
-dest_files=["res://.godot/imported/abracadabra.wav-6e0a6f11162fac084d8d6ba42f5caabb.sample"]
+source_file="res://assets/charms/default_spell.wav"
+dest_files=["res://.godot/imported/default_spell.wav-7236b7ee5a2e7d55ec22d11a2e0f6d60.sample"]
 
 [params]
 

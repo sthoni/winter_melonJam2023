@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4q0yo"]
 [ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
-[ext_resource type="AudioStream" uid="uid://h3n7vtrv5sbm" path="res://assets/audio/abracadabra.wav" id="3_dw23w"]
+[ext_resource type="AudioStream" uid="uid://h3n7vtrv5sbm" path="res://assets/charms/default_spell.wav" id="3_dw23w"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lp15p"]

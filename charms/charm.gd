@@ -10,8 +10,8 @@ func _init(value=150):
 func set_texture(texture):
 	$Sprite.set_texture(texture)
 
-func set_spell(spell):
-	$spell.set_stream(spell)
+func set_sound(sound):
+	$soundeffect.set_stream(sound)
 	
 func play_stream(b):
 	$spell.playing = b

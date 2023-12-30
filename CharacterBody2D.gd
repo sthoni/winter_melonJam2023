@@ -3,6 +3,7 @@ class_name Character
 
 @export var speed = 400 # speed in pixels/sec
 @export var rotation_speed = 1.5
+@onready var charmname = "DEFAULT"
 var target = Vector2.ZERO
 var rotation_direction = 0
 var enchanted = false
@@ -21,7 +22,9 @@ func rot_speed():
 	return rots
 
 func shoot():
-	wand.request_shoot("RED")
+	if Global.number_killed_enemies > 0:
+		charmname = "RED"
+	wand.request_shoot(charmname)
 	
 func get_input():
 	#rotation_direction = Input.get_axis("left", "right")
