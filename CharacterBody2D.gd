@@ -12,6 +12,7 @@ const STANDARD_ROT_SPEED = 0.1
 
 @onready var wand := $Wand
 @onready var health_component := $HealthComponent
+@onready var level := $"../"
 
 func _ready():
 	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
@@ -75,7 +76,11 @@ func _physics_process(delta):
 
 
 func _on_health_component_health_depleted():
-	pass
-	#get_tree().paused = true
+	level.pauseMenu(true)
 	#get_tree().change_scene_to_packed(Level)
 	#get_tree().paused = false
+
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("mobs"):
+		health_component.reduce_health(200)

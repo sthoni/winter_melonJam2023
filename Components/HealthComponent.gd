@@ -37,3 +37,4 @@ func add_health(amount):
 
 func _on_invincible_timer_timeout():
 	is_invincible = false
+

@@ -17,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_menu"):
-		pauseMenu()	
+		pauseMenu(false)	
 	if timer > 0:
 		timer -= delta
 		if timer <= 0:
@@ -39,7 +39,10 @@ func next_level():
 	active_level += 1
 	spawn_enemies(active_level)
 	
-func pauseMenu():
+func pauseMenu(dead:bool):
+	if dead:
+		pause_menu.show()
+		pause_menu.game_over()
 	if paused:
 		pause_menu.hide()
 		Engine.time_scale = 1
