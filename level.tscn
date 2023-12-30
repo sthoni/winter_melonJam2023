@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8l4ht0of3l0k"]
+[gd_scene load_steps=12 format=3 uid="uid://c8l4ht0of3l0k"]
 
 [ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="1_nq6ga"]
 [ext_resource type="Script" path="res://level.gd" id="1_uemux"]
 [ext_resource type="Texture2D" uid="uid://c1wj4u3jkskwa" path="res://assets/background_tilemap.png" id="2_62umv"]
 [ext_resource type="PackedScene" uid="uid://b430b0ffb7o5l" path="res://character.tscn" id="4_stfbw"]
 [ext_resource type="PackedScene" uid="uid://bwyxdrm32x73p" path="res://enemy_spawner.tscn" id="5_jr0pq"]
+[ext_resource type="PackedScene" uid="uid://yn61wgr3kj72" path="res://level_up.tscn" id="6_hk76x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_newqt"]
 texture = ExtResource("2_62umv")
@@ -152,3 +153,8 @@ position = Vector2(80, 295)
 
 [node name="EnemySpawner4" parent="." instance=ExtResource("5_jr0pq")]
 position = Vector2(62, 66)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawner2"]
+position = Vector2(3, -1)
+shape = SubResource("RectangleShape2D_cyl3w")
+
+[node name="LevelUp" parent="." instance=ExtResource("6_hk76x")]
