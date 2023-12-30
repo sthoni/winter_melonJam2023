@@ -158,7 +158,3 @@ position = Vector2(62, 66)
 [node name="LevelUp" parent="." instance=ExtResource("6_hk76x")]
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_nqa10")]
-offset_left = 278.0
-offset_top = 124.0
-offset_right = 278.0
-offset_bottom = 124.0

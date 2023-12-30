@@ -75,4 +75,7 @@ func _physics_process(delta):
 
 
 func _on_health_component_health_depleted():
-	get_tree().paused = true
+	pass
+	#get_tree().paused = true
+	#get_tree().change_scene_to_packed(Level)
+	#get_tree().paused = false

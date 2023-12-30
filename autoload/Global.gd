@@ -18,3 +18,6 @@ func check_level_finished() -> bool:
 		return true
 	else:
 		return false
+		
+func global_clear():
+	number_killed_enemies = 0
