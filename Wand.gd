@@ -11,7 +11,6 @@ var charm_name:String = "DEFAULT"
 
 func _ready():
 	charm_type = wand_class.new()
-	#self.connect("two_kills", change_to_red)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,7 +35,7 @@ func prepare_shoot():
 	$spell.set_stream(charm_type.selected_spell)
 	$spell.playing = true
 	
-func shoot():		
+func shoot():
 	charm_type.apply()
 	charm_type.charm_inst.transform = global_transform
 	owner.owner.add_child(charm_type.charm_inst)
@@ -56,15 +55,15 @@ class wand_class:
 		pass
 		
 	func default():
-		wait_time = 4
-		speed = 50
+		wait_time = 0.5
+		speed = 100
 		selected_sprite = load("res://assets/charms/0_default.png")
 		selected_spell = load("res://assets/charms/default_spell.wav")
 		selected_sound = load("res://assets/charms/default_soundeffect.wav")
 		
 	func red():
-		wait_time = 1.5
-		speed = 100
+		wait_time = 0.5
+		speed = 300
 		selected_sprite = load("res://assets/charms/1_red.png")
 		selected_spell = load("res://assets/charms/red_spell.wav")
 		selected_sound = load("res://assets/charms/red_soundeffect.wav")
