@@ -12,9 +12,11 @@ radius = 13.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_s34f0"]
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_d6u6j")
 
 [node name="Wand" type="Marker2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(18, -11)
 gizmo_extents = 37.0
 script = ExtResource("2_t0h4w")
@@ -23,6 +25,7 @@ script = ExtResource("2_t0h4w")
 stream = ExtResource("3_dw23w")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -35,6 +38,7 @@ shape = SubResource("CapsuleShape2D_jy0w3")
 shape = SubResource("CircleShape2D_s34f0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture = ExtResource("3_e6ta1")
 hframes = 2
 

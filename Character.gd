@@ -28,10 +28,18 @@ func shoot():
 func get_input():
 	enchanted = Input.is_action_pressed("ui_enchant")
 	var input_direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if input_direction.x < 0:
+		%Sprite2D.frame = 1
+	elif input_direction.x > 0:
+		%Sprite2D.frame = 0
 	velocity = input_direction * speed
 	if Input.is_action_pressed("shoot_left") or Input.is_action_pressed("shoot_right") or Input.is_action_pressed("shoot_up") or Input.is_action_pressed("shoot_down"):
 		var shoot_direction := Input.get_vector("shoot_left", "shoot_right", "shoot_up","shoot_down")
-		rotation = shoot_direction.angle() + PI/2
+		if shoot_direction.x < 0:
+			%Sprite2D.frame = 1
+		elif shoot_direction.x > 0:
+			%Sprite2D.frame = 0
+		%Wand.rotation = shoot_direction.angle() + PI/2
 		shoot()
 
 func _physics_process(delta):
