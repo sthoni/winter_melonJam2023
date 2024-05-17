@@ -11,11 +11,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity = movement_controller.calculate_movement(self.position)
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)

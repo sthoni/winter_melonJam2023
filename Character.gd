@@ -42,7 +42,7 @@ func get_input():
 		%Wand.rotation = shoot_direction.angle() + PI/2
 		shoot()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
