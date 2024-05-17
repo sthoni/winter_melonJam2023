@@ -1,37 +1,46 @@
-[gd_scene load_steps=7 format=3 uid="uid://b430b0ffb7o5l"]
+[gd_scene load_steps=8 format=3 uid="uid://b430b0ffb7o5l"]
 
-[ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_4q0yo"]
+[ext_resource type="Script" path="res://Character.gd" id="1_d6u6j"]
 [ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
 [ext_resource type="AudioStream" uid="uid://h3n7vtrv5sbm" path="res://assets/charms/default_spell.wav" id="3_dw23w"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="5_7xr0c"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lp15p"]
-radius = 19.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jy0w3"]
+radius = 13.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s34f0"]
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
-script = ExtResource("1_4q0yo")
+collision_layer = 2
+script = ExtResource("1_d6u6j")
 
 [node name="Wand" type="Marker2D" parent="."]
-position = Vector2(17, -26)
+unique_name_in_owner = true
+position = Vector2(18, -11)
 gizmo_extents = 37.0
 script = ExtResource("2_t0h4w")
 
 [node name="spell" type="AudioStreamPlayer" parent="Wand"]
 stream = ExtResource("3_dw23w")
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(3, 0)
-texture = ExtResource("3_e6ta1")
-
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2, 0)
-shape = SubResource("CircleShape2D_lp15p")
+position = Vector2(0, 2)
+shape = SubResource("CapsuleShape2D_jy0w3")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_7xr0c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_s34f0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("3_e6ta1")
+hframes = 2
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
