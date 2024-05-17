@@ -29,7 +29,7 @@ func level_up():
 	timer = 1.9
 
 
-func spawn_enemies(level):
+func spawn_enemies(_level):
 	for enemy in range(active_level+1):
 		var enemy_type = randi() % Global.EnemyType.size()
 		var new_enemy = spawners[randi() % spawners.size()].create_enemy(enemy_type)

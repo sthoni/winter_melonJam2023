@@ -14,7 +14,7 @@ func game_over():
 	score_container.visible = true
 	score.text = str(Global.number_killed_enemies)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_quit_pressed():
