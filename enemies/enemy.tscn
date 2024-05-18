@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://kh3gp6km022u"]
+[gd_scene load_steps=9 format=3 uid="uid://kh3gp6km022u"]
 
 [ext_resource type="Texture2D" uid="uid://bhsv71aw282lo" path="res://assets/enemy_proto.png" id="1_daqqq"]
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_kc1q1"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="4_bk7j2"]
-[ext_resource type="Script" path="res://Components/MovementComponent.gd" id="4_epvoa"]
+[ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="5_aba5e"]
 [ext_resource type="Script" path="res://enemy_movement_velocity_ki.gd" id="5_f7054"]
+[ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://Components/MovementComponent.tscn" id="6_h0hep"]
 [ext_resource type="Resource" uid="uid://coy5jvnkq8ot2" path="res://enemy_movement_stats.tres" id="6_rdo3t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kbwjk"]
@@ -24,13 +25,13 @@ texture = ExtResource("1_daqqq")
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_bk7j2")]
 
-[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("4_epvoa")
-actor = NodePath("..")
-
-[node name="EnemyMovementStats" type="Node" parent="." node_paths=PackedStringArray("actor")]
+[node name="EnemyMovementVelocityKi" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("5_f7054")
 actor = NodePath("..")
 movement_stats = ExtResource("6_rdo3t")
+
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("6_h0hep")]
+actor = NodePath("..")
+step_sound = ExtResource("5_aba5e")
 
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b430b0ffb7o5l"]
+[gd_scene load_steps=11 format=3 uid="uid://b430b0ffb7o5l"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_d6u6j"]
 [ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="5_7xr0c"]
 [ext_resource type="Script" path="res://player_movement_velocity_input.gd" id="5_be6xw"]
 [ext_resource type="Resource" uid="uid://cmulok0i3lkiw" path="res://player_movement_stats.tres" id="6_labsj"]
-[ext_resource type="Script" path="res://Components/MovementComponent.gd" id="7_34ugu"]
+[ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://Components/MovementComponent.tscn" id="7_vvcke"]
+[ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="8_632va"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jy0w3"]
 radius = 13.0
@@ -50,9 +51,9 @@ script = ExtResource("5_be6xw")
 actor = NodePath("..")
 movement_stats = ExtResource("6_labsj")
 
-[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("7_34ugu")
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("7_vvcke")]
 actor = NodePath("..")
+step_sound = ExtResource("8_632va")
 
 [connection signal="timeout" from="Wand/CastTimer" to="Wand" method="cast"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
