@@ -132,6 +132,7 @@ layer_0/tile_data = PackedInt32Array(0, 131072, 0, 1, 262144, 0, 2, 262144, 0, 3
 
 [node name="Character" parent="." instance=ExtResource("4_stfbw")]
 position = Vector2(323, 175)
+speed = 150.0
 
 [node name="EnemySpawner" parent="." instance=ExtResource("5_jr0pq")]
 position = Vector2(567, 284)
