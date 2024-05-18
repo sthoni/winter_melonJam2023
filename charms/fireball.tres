@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://v4b7c7n6st3s"]
+
+[ext_resource type="Script" path="res://charms/fireball.gd" id="1_fgmfi"]
+[ext_resource type="Texture2D" uid="uid://0c5f3vhjvlei" path="res://assets/charms/2_fireballt.png" id="1_ij358"]
+[ext_resource type="AudioStream" uid="uid://t3s8ov1jq6dw" path="res://assets/charms/red_spell.wav" id="3_pokk4"]
+
+[resource]
+script = ExtResource("1_fgmfi")
+id = "fireball"
+type = 0
+cost = 5
+speed = 120
+area_of_effect = 5
+cast_time = 2.0
+icon = ExtResource("1_ij358")
+tooltip_text = ""
+sound = ExtResource("3_pokk4")

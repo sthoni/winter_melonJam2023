@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://pcian72metwo"]
+[gd_scene load_steps=4 format=3 uid="uid://pcian72metwo"]
 
 [ext_resource type="Script" path="res://charms/projectile.gd" id="1_5oisb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_huajg"]
 size = Vector2(12.9047, 18.2041)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vaa08"]
+
 [node name="Projectile" type="Area2D"]
+collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_5oisb")
 
@@ -14,6 +17,14 @@ scale = Vector2(1.00962, 1)
 shape = SubResource("RectangleShape2D_huajg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AreaOfEffect" type="Area2D" parent="."]
+scale = Vector2(1, 0.992758)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
+shape = SubResource("CircleShape2D_vaa08")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
