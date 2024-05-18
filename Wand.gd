@@ -1,17 +1,19 @@
 class_name Wand
 extends Marker2D
 
-@onready var charmspeed = 150
 @onready var wait = 0.0
 @onready var is_charm_loading = false
-var charm_name:String = "DEFAULT"
-@onready var charm: Charm = preload("res://charms/plasmaball.tres")
+@onready var charm_book: CharmBook = preload("res://charms/player_charm_book.tres")
 @onready var projectile_scene = preload("res://charms/projectile.tscn")
 
+var charm: Charm
+
+# Hack um durch die Charms zu switchen
+var charm_index := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	charm = charm_book.charms[charm_index]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -21,6 +23,20 @@ func _process(delta):
 		cast()
 		wait = 0
 
+# Mit Q und E durch Charms switchen
+func _input(event):
+	if event.is_action_pressed("charm_switch_right"):
+		if charm_index < charm_book.charms.size() - 1:
+			charm_index += 1
+		else:
+			charm_index = 0
+		charm = charm_book.charms[charm_index]
+	if event.is_action_pressed("charm_switch_left"):
+		if charm_index > 0:
+			charm_index -= 1
+		else:
+			charm_index = charm_book.charms.size() - 1
+		charm = charm_book.charms[charm_index]
 
 func request_cast():
 	if is_charm_loading:
