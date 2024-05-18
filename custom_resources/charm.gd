@@ -9,6 +9,7 @@ enum Type {PROJECTILE}
 @export var type: Type
 @export var cost: int
 @export var speed: int
+@export var area_of_effect: int
 @export var cast_time: float
 
 @export_group("Charms Visuals")
@@ -20,7 +21,7 @@ enum Type {PROJECTILE}
 func cast() -> void:
 	Events.charm_cast.emit(self)
 
-func apply_effects(_targets: Array[Node]) -> void:
+func apply_effects(_targets: Array[Node2D]) -> void:
 	pass
 
 func get_default_tooltip() -> String:
