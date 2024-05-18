@@ -9,7 +9,7 @@ enum Type {PROJECTILE}
 @export var type: Type
 @export var cost: int
 @export var speed: int
-@export var cast_time: int
+@export var cast_time: float
 
 @export_group("Charms Visuals")
 @export var icon: Texture
