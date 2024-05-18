@@ -17,7 +17,7 @@ script = ExtResource("1_d6u6j")
 
 [node name="Wand" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(18, -11)
+position = Vector2(-3, 3)
 gizmo_extents = 37.0
 script = ExtResource("2_t0h4w")
 
