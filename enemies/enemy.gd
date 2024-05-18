@@ -16,14 +16,15 @@ func _process(_delta):
 
 
 func _physics_process(_delta):
-	velocity = movement_controller.calculate_movement(self.position)
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		if collision.get_collider() and collision.get_collider().name == "Character":
-			var character: Character = collision.get_collider()
-			self.position -= velocity.normalized()*3
-			character.health_component.reduce_health(4)
-	move_and_slide()
+	#velocity = movement_controller.calculate_movement(self.position)
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#if collision.get_collider() and collision.get_collider().name == "Character":
+			#var character: Character = collision.get_collider()
+			#self.position -= velocity.normalized()*3
+			#character.health_component.reduce_health(4)
+	#move_and_slide()
+	pass
 
 	
 func _on_health_component_health_depleted():
