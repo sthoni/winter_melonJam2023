@@ -10,6 +10,7 @@ id = "firebolt"
 type = 0
 cost = 2
 speed = 250
+area_of_effect = 2
 cast_time = 4.0
 icon = ExtResource("1_0jidi")
 tooltip_text = ""
