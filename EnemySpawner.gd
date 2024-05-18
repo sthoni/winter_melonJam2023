@@ -18,7 +18,6 @@ func _process(_delta):
 
 func create_enemy(type: Global.EnemyType) -> Enemy:
 	var enemy: Enemy
-	print(type)
 	match type:
 		Global.EnemyType.BLUE:
 			enemy = enemy_blue_resource.instantiate()

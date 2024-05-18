@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://iaqfg3sgb411"]
+
+[ext_resource type="Texture2D" uid="uid://bf61scxp2t425" path="res://assets/charms/1_red.png" id="1_0jidi"]
+[ext_resource type="Script" path="res://charms/firebolt.gd" id="1_kpdsp"]
+[ext_resource type="AudioStream" uid="uid://t3s8ov1jq6dw" path="res://assets/charms/red_spell.wav" id="3_if71a"]
+
+[resource]
+script = ExtResource("1_kpdsp")
+id = "firebolt"
+type = 0
+cost = 2
+speed = 100
+cast_time = 2
+icon = ExtResource("1_0jidi")
+tooltip_text = ""
+sound = ExtResource("3_if71a")
