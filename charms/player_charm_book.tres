@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CharmBook" load_steps=4 format=3 uid="uid://df0aufk8wabt7"]
+
+[ext_resource type="Resource" uid="uid://iaqfg3sgb411" path="res://charms/firebolt.tres" id="1_p1kw0"]
+[ext_resource type="Script" path="res://custom_resources/charm_book.gd" id="1_s3y8a"]
+[ext_resource type="Resource" uid="uid://cckp81d5bglf2" path="res://charms/plasmaball.tres" id="2_35wx8"]
+
+[resource]
+script = ExtResource("1_s3y8a")
+charms = Array[Resource("res://custom_resources/charm.gd")]([ExtResource("1_p1kw0"), ExtResource("2_35wx8")])
