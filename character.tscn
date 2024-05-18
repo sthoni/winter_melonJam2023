@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b430b0ffb7o5l"]
+[gd_scene load_steps=7 format=3 uid="uid://b430b0ffb7o5l"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_d6u6j"]
 [ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
-[ext_resource type="AudioStream" uid="uid://h3n7vtrv5sbm" path="res://assets/charms/default_spell.wav" id="3_dw23w"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="5_7xr0c"]
 
@@ -21,8 +20,8 @@ position = Vector2(-3, 3)
 gizmo_extents = 37.0
 script = ExtResource("2_t0h4w")
 
-[node name="spell" type="AudioStreamPlayer" parent="Wand"]
-stream = ExtResource("3_dw23w")
+[node name="CastTimer" type="Timer" parent="Wand"]
+one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -42,5 +41,6 @@ unique_name_in_owner = true
 texture = ExtResource("3_e6ta1")
 hframes = 2
 
+[connection signal="timeout" from="Wand/CastTimer" to="Wand" method="cast"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]
