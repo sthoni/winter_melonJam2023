@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var spawners: Array[Node] = get_tree().get_nodes_in_group("spawner")
+@onready var pickable_spawner:= $PickableSpawner
 @onready var active_level := 0
 @onready var timer:float = 0
 @onready var pause_menu = $PauseMenu
@@ -12,6 +13,7 @@ func _ready():
 	Global.level_finished.connect(next_level)
 	spawn_enemies(active_level)
 	Global.kill.connect(level_up)
+	Global.kill.connect(spawn_pickable)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,6 +30,10 @@ func level_up():
 	$LevelUp/Animation.current_animation = "level_up"
 	timer = 1.9
 
+func spawn_pickable():
+	var pickable_type = randi() % 2 #Global.PickableType.size()
+	var new_pickable = pickable_spawner.create_pickable(pickable_type)
+	add_child.call(new_pickable)
 
 func spawn_enemies(_level):
 	for enemy in range(active_level+1):

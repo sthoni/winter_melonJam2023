@@ -4,7 +4,8 @@ signal level_finished
 signal kill
 
 var number_killed_enemies = 0
-enum EnemyType {RED,YELLOW, GREEN,BLUE}
+enum EnemyType {RED, YELLOW, GREEN, BLUE}
+enum PickableType {PLATANO, ARMOR1, WIGGLEWAND, MOVEFAST}
 
 func _on_enemy_health_depleted():
 	number_killed_enemies += 1
