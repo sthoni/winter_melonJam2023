@@ -25,15 +25,16 @@ func _process(delta):
 		if timer <= 0:
 			$LevelUp.visible = false
 	
-func level_up():
+func level_up(pos:Vector2):
 	$LevelUp.visible = true
 	$LevelUp/Animation.current_animation = "level_up"
 	timer = 1.9
 
-func spawn_pickable():
+func spawn_pickable(pos:Vector2):
 	var pickable_type = randi() % 2 #Global.PickableType.size()
 	var new_pickable = pickable_spawner.create_pickable(pickable_type)
-	add_child.call(new_pickable)
+	new_pickable.position = pos
+	add_child.call_deferred(new_pickable)
 
 func spawn_enemies(_level):
 	for enemy in range(active_level+1):

@@ -27,5 +27,5 @@ func _physics_process(_delta):
 
 	
 func _on_health_component_health_depleted():
-	Global._on_enemy_health_depleted()
+	Global._on_enemy_health_depleted(self.position)
 	queue_free()

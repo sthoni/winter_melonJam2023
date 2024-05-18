@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://iaqfg3sgb411" path="res://charms/firebolt.tres" id="1_p1kw0"]
 [ext_resource type="Script" path="res://custom_resources/charm_book.gd" id="1_s3y8a"]
 [ext_resource type="Resource" uid="uid://cckp81d5bglf2" path="res://charms/plasmaball.tres" id="2_35wx8"]
-[ext_resource type="Resource" uid="uid://v4b7c7n6st3s" path="res://charms/fireball.tres" id="3_ejtsr"]
+[ext_resource type="Resource" path="res://charms/fireball.tres" id="3_ejtsr"]
 
 [resource]
 script = ExtResource("1_s3y8a")
