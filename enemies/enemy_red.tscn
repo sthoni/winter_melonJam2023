@@ -9,6 +9,3 @@ script = ExtResource("2_rwjyy")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_gt18p")
-
-[node name="HealthComponent" parent="." index="3"]
-MAX_HEALTH = 3

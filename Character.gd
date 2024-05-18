@@ -11,6 +11,7 @@ const STANDARD_ROT_SPEED = 0.1
 @onready var wand := $Wand
 @onready var health_component := $HealthComponent
 @onready var level := $"../"
+@onready var sprite := $Sprite2D
 
 func _ready():
 	pass
@@ -21,25 +22,24 @@ func magicspell():
 	return 1
 
 func shoot():
-	if Global.number_killed_enemies > 0:
-		charmname = "RED"
-	wand.request_shoot(charmname)
-	
+	wand.request_cast()
+
+# TODO: Schießen in eigene Component packen
 func get_input():
 	enchanted = Input.is_action_pressed("ui_enchant")
 	var input_direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if input_direction.x < 0:
-		%Sprite2D.frame = 1
+		sprite.frame = 1
 	elif input_direction.x > 0:
-		%Sprite2D.frame = 0
+		sprite.frame = 0
 	velocity = input_direction * speed
 	if Input.is_action_pressed("shoot_left") or Input.is_action_pressed("shoot_right") or Input.is_action_pressed("shoot_up") or Input.is_action_pressed("shoot_down"):
 		var shoot_direction := Input.get_vector("shoot_left", "shoot_right", "shoot_up","shoot_down")
 		if shoot_direction.x < 0:
-			%Sprite2D.frame = 1
+			sprite.frame = 1
 		elif shoot_direction.x > 0:
-			%Sprite2D.frame = 0
-		%Wand.rotation = shoot_direction.angle() + PI/2
+			sprite.frame = 0
+		wand.rotation = shoot_direction.angle() + PI/2
 		shoot()
 
 func _physics_process(_delta):
