@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var music: AudioStream
+
 @onready var spawners: Array[Node] = get_tree().get_nodes_in_group("spawner")
 @onready var pickable_spawner:= $PickableSpawner
 @onready var active_level := 0
@@ -14,6 +16,7 @@ func _ready():
 	spawn_enemies(active_level)
 	Global.kill.connect(level_up)
 	Global.kill.connect(spawn_pickable)
+	MusicPlayer.play(music, true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
