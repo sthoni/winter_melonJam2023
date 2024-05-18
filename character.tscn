@@ -15,6 +15,7 @@ radius = 13.0
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_d6u6j")
+speed = 350.0
 step_sound = ExtResource("2_gvncw")
 
 [node name="Wand" type="Marker2D" parent="."]
