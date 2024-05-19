@@ -4,9 +4,7 @@ class_name  PlayerMovementVelocityInput
 
 @export var actor: CharacterBody2D
 
-func _ready() -> void:
-	movement_stats.max_speed = Global.STANDARDSPEED
-	
+
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	if input.x < 0:

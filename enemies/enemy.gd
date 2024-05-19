@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-@export var stats: EnemyStats
+@export var stats: EnemyStats  : set = set_enemy_stats
 @onready var color: Global.EnemyType
 
 # Called when the node enters the scene tree for the first time.

@@ -24,7 +24,7 @@ func reduce_health(amount):
 			actor.stats.health_stats.set_health(0)
 			emit_signal("health_depleted")
 			if actor is Enemy:
-				Global._on_enemy_health_depleted()
+				Global._on_enemy_health_depleted(actor.position)
 			elif actor is Character:
 				Events.player_died.emit()
 			actor.queue_free()
