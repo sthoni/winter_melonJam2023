@@ -34,7 +34,7 @@ func level_up(pos:Vector2):
 	timer = 1.9
 
 func spawn_pickable(pos:Vector2):
-	var pickable_type = randi() % 2 #Global.PickableType.size()
+	var pickable_type = randi() % 2 #Global.PickableKind.size()
 	var new_pickable = pickable_spawner.create_pickable(pickable_type)
 	new_pickable.position = pos
 	add_child.call_deferred(new_pickable)
