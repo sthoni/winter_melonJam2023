@@ -1,15 +1,36 @@
 extends CharacterBody2D
 class_name Character
 
-@export var speed: float = 150 # speed in pixels/sec
+@export var stats: CharacterStats : set = set_character_stats
+@export var health_component: HealthComponent
 
 @onready var wand := $Wand
-@onready var health_component := $HealthComponent
-@onready var level := $"../"
 @onready var sprite := $Sprite2D
 
 func _ready():
 	pass
+
+
+func set_character_stats(value: CharacterStats) -> void:
+	stats = value.create_instance()
+	
+	if not stats.stats_changed.is_connected(update_stats):
+		stats.stats_changed.connect(update_stats)
+
+	update_player()
+
+# Das wird nötig, wenn man noch ein UI-Element beim Player hat.
+func update_player() -> void:
+	if not stats is CharacterStats: 
+		return
+	if not is_inside_tree(): 
+		await ready
+	update_stats()
+
+# Das wird nötig, wenn man noch ein UI-Element beim Player hat.
+func update_stats() -> void:
+	pass
+
 
 func cast():
 	wand.request_cast()
@@ -30,10 +51,6 @@ func _physics_process(_delta):
 	move_and_slide()
 
 
-func _on_health_component_health_depleted():
-	level.pauseMenu(true)
-
-
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("mobs"):
-		health_component.reduce_health(200)
+	if body.is_in_group("enemies"):
+		health_component.reduce_health(10)
