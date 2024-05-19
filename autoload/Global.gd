@@ -6,6 +6,7 @@ signal kill(pos:Vector2)
 var number_killed_enemies = 0
 enum EnemyType {RED, YELLOW, GREEN, BLUE}
 enum PickableKind {PLATANO, ARMOR1, WIGGLEWAND, MOVEFAST}
+var STANDARDSPEED = 100
 
 func _on_enemy_health_depleted(pos:Vector2):
 	number_killed_enemies += 1

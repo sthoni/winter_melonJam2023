@@ -1,7 +1,8 @@
-extends CharacterBody2D
+extends Area2D
 class_name Pickable
 
-var kind: Global.PickableKind
+
+@onready var kind: Global.PickableKind = Global.PickableKind.PLATANO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +21,13 @@ func _on_pickable_picked_up():
 func _on_pick_up_area_body_entered(body):
 	match self.kind:
 		Global.PickableKind.PLATANO:
-			body.speed = 50
-		
+			if body is Enemy:
+				body.get_node("EnemyMovementVelocityKi").movement_stats.max_speed = 10.0
+			if body.name is Character:
+				body.get_node("PlayerMovementVelocityInput").movement_stats.max_speed = 50.0
+		Global.PickableKind.ARMOR1:
+			if body.name == "Enemy":
+				body.get_node("HealthComponent").current_health  += 10.0
+			if body.name == "Character":
+				body.get_node("HealthComponent").current_health  += 50.0
 	_on_pickable_picked_up()

@@ -9,14 +9,12 @@ radius = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_81tpm"]
 radius = 0.110454
 
-[node name="Pickable" type="CharacterBody2D" groups=["items_good"]]
+[node name="Pickable" type="Area2D" groups=["items_good"]]
 collision_layer = 0
 collision_mask = 7
-platform_floor_layers = 4294967040
 script = ExtResource("1_fgv3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_kbwjk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

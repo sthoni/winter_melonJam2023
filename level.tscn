@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8l4ht0of3l0k"]
+[gd_scene load_steps=16 format=3 uid="uid://c8l4ht0of3l0k"]
 
 [ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="1_nq6ga"]
 [ext_resource type="Script" path="res://level.gd" id="1_uemux"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bpm2to01is6gr" path="res://assets/audio/theme.wav" id="8_end6u"]
 [ext_resource type="PackedScene" uid="uid://cc3oo1afewvr8" path="res://pickable_spawner.tscn" id="9_t8hlp"]
 [ext_resource type="Script" path="res://pickable_spawner.gd" id="10_ex6n6"]
+[ext_resource type="PackedScene" uid="uid://be6ufrd70u0j1" path="res://pickables/pickable.tscn" id="11_ivm2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pspu7"]
 texture = ExtResource("2_62umv")
@@ -161,3 +162,6 @@ script = ExtResource("10_ex6n6")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_end6u")
 autoplay = true
+
+[node name="Pickable" parent="." instance=ExtResource("11_ivm2q")]
+position = Vector2(213, 166)
