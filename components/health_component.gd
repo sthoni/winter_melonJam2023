@@ -26,7 +26,7 @@ func reduce_health(amount):
 			if actor is Enemy:
 				Global._on_enemy_health_depleted(actor.position)
 			elif actor is Character:
-				Events.player_died.emit()
+				Events.character_died.emit()
 			actor.queue_free()
 		is_invincible = true
 		invincible_timer.start()

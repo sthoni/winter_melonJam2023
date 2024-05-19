@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvmb3p78x728s"]
 
-[ext_resource type="Script" path="res://Components/MovementComponent.gd" id="1_ey3ot"]
+[ext_resource type="Script" path="res://components/movement_component.gd" id="1_1yt5j"]
 
 [node name="MovementComponent" type="Node"]
-script = ExtResource("1_ey3ot")
+script = ExtResource("1_1yt5j")
 
 [node name="StepTimer" type="Timer" parent="."]
 one_shot = true

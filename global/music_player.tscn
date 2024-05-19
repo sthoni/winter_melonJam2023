@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjnfm6kn5um7r"]
+[gd_scene load_steps=2 format=3 uid="uid://by3htnnfb6fp0"]
 
-[ext_resource type="Script" path="res://autoload/sound_player.gd" id="1_xpoki"]
+[ext_resource type="Script" path="res://global/sound_player.gd" id="1_h1g0g"]
 
-[node name="SfxPlayer" type="Node"]
-script = ExtResource("1_xpoki")
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_h1g0g")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
