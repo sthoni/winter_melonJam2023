@@ -23,6 +23,7 @@ shape = SubResource("CircleShape2D_kbwjk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_63he1")
+hframes = 2
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("4_qdgj5")]
 actor = NodePath("..")
