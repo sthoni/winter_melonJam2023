@@ -10,10 +10,6 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if input.x < 0:
-		actor.sprite.frame = 1
-	elif input.x > 0:
-		actor.sprite.frame = 0
 	if input.length() > 0:
 		actor.velocity = actor.velocity.move_toward(input * movement_stats.max_speed, movement_stats.acceleration * delta)
 	else:

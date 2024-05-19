@@ -20,6 +20,7 @@ shape = SubResource("CircleShape2D_kbwjk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_daqqq")
+hframes = 2
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_bk7j2")]
 MAX_HEALTH = 5
