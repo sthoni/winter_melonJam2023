@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Character
 
-@export var speed: float = 150 # speed in pixels/sec
+@export var stats: CharacterStats
 
 @onready var wand := $Wand
 @onready var health_component := $HealthComponent
@@ -35,5 +35,5 @@ func _on_health_component_health_depleted():
 
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("mobs"):
+	if body.is_in_group("enemies"):
 		health_component.reduce_health(200)
