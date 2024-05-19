@@ -15,6 +15,7 @@ func _ready():
 	spawn_enemies(active_level)
 	Global.kill.connect(level_up)
 	MusicPlayer.play(music, true)
+	Events.player_died.connect(pauseMenu.bind(true))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

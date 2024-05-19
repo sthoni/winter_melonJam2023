@@ -1,23 +1,25 @@
 [gd_scene load_steps=11 format=3 uid="uid://b430b0ffb7o5l"]
 
 [ext_resource type="Script" path="res://Character.gd" id="1_d6u6j"]
+[ext_resource type="Resource" uid="uid://wjc0mmxfdygs" path="res://character.tres" id="2_07pdc"]
 [ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
-[ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="5_7xr0c"]
 [ext_resource type="Script" path="res://player_movement_velocity_input.gd" id="5_be6xw"]
-[ext_resource type="Resource" uid="uid://cmulok0i3lkiw" path="res://player_movement_stats.tres" id="6_labsj"]
 [ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://Components/MovementComponent.tscn" id="7_vvcke"]
 [ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="8_632va"]
+[ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="9_eflpk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jy0w3"]
 radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s34f0"]
 
-[node name="Character" type="CharacterBody2D" groups=["player"]]
+[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("health_component") groups=["player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_d6u6j")
+stats = ExtResource("2_07pdc")
+health_component = NodePath("HealthComponent")
 
 [node name="Wand" type="Marker2D" parent="."]
 unique_name_in_owner = true
@@ -36,8 +38,6 @@ collision_mask = 5
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_jy0w3")
 
-[node name="HealthComponent" parent="." instance=ExtResource("5_7xr0c")]
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_s34f0")
 
@@ -49,12 +49,13 @@ hframes = 2
 [node name="PlayerMovementVelocityInput" type="Node" parent="." node_paths=PackedStringArray("actor")]
 script = ExtResource("5_be6xw")
 actor = NodePath("..")
-movement_stats = ExtResource("6_labsj")
 
 [node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("7_vvcke")]
 actor = NodePath("..")
 step_sound = ExtResource("8_632va")
 
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("9_eflpk")]
+actor = NodePath("..")
+
 [connection signal="timeout" from="Wand/CastTimer" to="Wand" method="cast"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]

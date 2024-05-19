@@ -9,4 +9,4 @@ func execute(targets: Array[Node2D]) -> void:
 		if not target:
 			continue
 		if target.has_node("HealthComponent"):
-			target.health_component.reduce_health(amount)
+			target.get_node("HealthComponent").reduce_health(amount)
