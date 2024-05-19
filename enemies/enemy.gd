@@ -1,14 +1,34 @@
 extends CharacterBody2D
 class_name Enemy
 
-@onready var health_component: HealthComponent = $HealthComponent
+@export var stats: EnemyStats  : set = set_enemy_stats
 @onready var color: Global.EnemyType
 @onready var sprite: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
+	pass
 
+
+func set_enemy_stats(value: EnemyStats) -> void:
+	stats = value.create_instance()
+	
+	if not stats.stats_changed.is_connected(update_stats):
+		stats.stats_changed.connect(update_stats)
+
+	update_enemy()
+
+# Das wird nötig, wenn man noch ein UI-Element beim Player hat.
+func update_enemy() -> void:
+	if not stats is EnemyStats: 
+		return
+	if not is_inside_tree(): 
+		await ready
+	update_stats()
+
+# Das wird nötig, wenn man noch ein UI-Element beim Player hat.
+func update_stats() -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -18,7 +38,3 @@ func _process(_delta):
 func _physics_process(_delta):
 	pass
 
-	
-func _on_health_component_health_depleted():
-	Global._on_enemy_health_depleted(self.position)
-	queue_free()

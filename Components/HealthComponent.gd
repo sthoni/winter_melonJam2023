@@ -3,8 +3,7 @@ class_name HealthComponent
 
 signal health_depleted
 
-@export var MAX_HEALTH: int
-@onready var current_health: int = MAX_HEALTH
+@export var actor: CharacterBody2D
 @onready var is_invincible := false
 @onready var invincible_timer := $InvincibleTimer
 
@@ -20,19 +19,24 @@ func _process(_delta):
 
 func reduce_health(amount):
 	if !is_invincible:
-		current_health -= amount
-		if current_health < 1:
-			current_health = 0
+		actor.stats.health_stats.take_damage(amount)
+		if actor.stats.health_stats.health < 1:
+			actor.stats.health_stats.set_health(0)
 			emit_signal("health_depleted")
+			if actor is Enemy:
+				Global._on_enemy_health_depleted(actor.position)
+			elif actor is Character:
+				Events.player_died.emit()
+			actor.queue_free()
 		is_invincible = true
 		invincible_timer.start()
 
 
 func add_health(amount):
-	if current_health + amount < MAX_HEALTH:
-		current_health += amount
+	if actor.stats.health_stats.health + amount < actor.stats.health_stats.max_health:
+		actor.stats.health_stats.heal(amount)
 	else:
-		current_health = MAX_HEALTH
+		actor.stats.health_stats.health = actor.stats.health_stats.max_health
 
 
 func _on_invincible_timer_timeout():

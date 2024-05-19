@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	if !step_playing && step_timer.is_stopped():
 		audio_player.play()
 		step_playing = true
-		step_timer.wait_time = 60.0 / actor.velocity.length()
+		step_timer.wait_time = 30.0 / actor.velocity.length()
 		step_timer.start()
 
 

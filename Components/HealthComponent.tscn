@@ -4,7 +4,6 @@
 
 [node name="HealthComponent" type="Node"]
 script = ExtResource("1_yd2yy")
-MAX_HEALTH = 20
 
 [node name="InvincibleTimer" type="Timer" parent="."]
 wait_time = 0.5

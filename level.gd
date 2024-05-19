@@ -17,7 +17,8 @@ func _ready():
 	Global.kill.connect(level_up)
 	Global.kill.connect(spawn_pickable)
 	MusicPlayer.play(music, true)
-	#$Character/PlayerMovementVelocityInput.movement_stats.max_speed = Global.STANDARDSPEED
+	Events.player_died.connect(pauseMenu.bind(true))
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

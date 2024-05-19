@@ -22,12 +22,12 @@ func _on_pick_up_area_body_entered(body):
 	match self.kind:
 		Global.PickableKind.PLATANO:
 			if body is Enemy:
-				body.get_node("EnemyMovementVelocityKi").movement_stats.max_speed = 10.0
+				body.stats.movement_stats.slow_down(50)
 			if body.name is Character:
-				body.get_node("PlayerMovementVelocityInput").movement_stats.max_speed = 50.0
+				body.stats.movement_stats.slow_down(50)
 		Global.PickableKind.ARMOR1:
 			if body.name == "Enemy":
-				body.get_node("HealthComponent").current_health  += 10.0
+				body.stats.health_stats.heal(10)
 			if body.name == "Character":
-				body.get_node("HealthComponent").current_health  += 50.0
+				body.stats.health_stats.heal(50)
 	_on_pickable_picked_up()

@@ -1,6 +1,6 @@
 extends Charm
 
-var base_damage := 3
+var base_damage := 30
 
 func apply_effects(targets: Array[Node2D]) -> void:
 	var damage_effect := DamageEffect.new()
