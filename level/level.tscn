@@ -1,17 +1,17 @@
 [gd_scene load_steps=14 format=3 uid="uid://c8l4ht0of3l0k"]
 
-[ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="1_nq6ga"]
-[ext_resource type="Script" path="res://level.gd" id="1_uemux"]
-[ext_resource type="Texture2D" uid="uid://c1wj4u3jkskwa" path="res://assets/background_tilemap.png" id="2_62umv"]
-[ext_resource type="PackedScene" uid="uid://b430b0ffb7o5l" path="res://character.tscn" id="4_stfbw"]
-[ext_resource type="PackedScene" uid="uid://bwyxdrm32x73p" path="res://enemy_spawner.tscn" id="5_jr0pq"]
-[ext_resource type="PackedScene" uid="uid://yn61wgr3kj72" path="res://level_up.tscn" id="6_hk76x"]
-[ext_resource type="PackedScene" uid="uid://2bbpqlydy4bk" path="res://pickable_spawner.tscn" id="7_1l016"]
-[ext_resource type="PackedScene" uid="uid://by5ifcv8fa5pa" path="res://UI/pause_menu.tscn" id="7_nqa10"]
-[ext_resource type="AudioStream" uid="uid://bpm2to01is6gr" path="res://assets/audio/theme.wav" id="8_end6u"]
+[ext_resource type="Script" path="res://level/level.gd" id="1_c5ve1"]
+[ext_resource type="AudioStream" uid="uid://bpm2to01is6gr" path="res://assets/audio/theme.wav" id="2_beorr"]
+[ext_resource type="Texture2D" uid="uid://c1wj4u3jkskwa" path="res://assets/background_tilemap.png" id="3_2xvqm"]
+[ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="4_7hbp0"]
+[ext_resource type="PackedScene" uid="uid://b430b0ffb7o5l" path="res://character/character.tscn" id="5_nlm33"]
+[ext_resource type="PackedScene" uid="uid://bwyxdrm32x73p" path="res://enemies/enemy_spawner.tscn" id="6_blih5"]
+[ext_resource type="PackedScene" uid="uid://2bbpqlydy4bk" path="res://level/pickable_spawner.tscn" id="7_a84ky"]
+[ext_resource type="PackedScene" uid="uid://yn61wgr3kj72" path="res://ui/level_up.tscn" id="8_xf85e"]
+[ext_resource type="PackedScene" uid="uid://by5ifcv8fa5pa" path="res://ui/pause_menu.tscn" id="9_duejt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pspu7"]
-texture = ExtResource("2_62umv")
+texture = ExtResource("3_2xvqm")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -33,7 +33,7 @@ texture = ExtResource("2_62umv")
 sources/0 = SubResource("TileSetAtlasSource_pspu7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iiynm"]
-texture = ExtResource("1_nq6ga")
+texture = ExtResource("4_7hbp0")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -117,8 +117,8 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_iiynm")
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_uemux")
-music = ExtResource("8_end6u")
+script = ExtResource("1_c5ve1")
+music = ExtResource("2_beorr")
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2b0t6")
@@ -131,26 +131,26 @@ tile_set = SubResource("TileSet_7dtww")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 131072, 0, 1, 262144, 0, 2, 262144, 0, 3, 196608, 0, 4, 65536, 1, 5, 65536, 1, 6, 196608, 0, 7, 262144, 0, 8, 0, 1, 9, 0, 1, 10, 196608, 0, 11, 262144, 0, 12, 196608, 0, 13, 0, 1, 14, 0, 1, 15, 196608, 0, 16, 0, 1, 17, 196608, 0, 18, 0, 1, 19, 0, 1, 20, 196608, 0, 21, 65536, 1, 22, 196608, 0, 23, 65536, 1, 24, 196608, 0, 25, 0, 1, 26, 196608, 0, 27, 262144, 0, 28, 196608, 0, 29, 65536, 1, 30, 196608, 0, 31, 196608, 0, 32, 262144, 0, 33, 262144, 0, 34, 262144, 0, 35, 65536, 1, 36, 196608, 0, 37, 65536, 1, 38, 196608, 0, 39, 131072, 1, 1376295, 196608, 3, 1376256, 196608, 2, 65575, 262144, 1, 131111, 262144, 1, 196647, 0, 2, 262183, 262144, 1, 327719, 131072, 2, 393255, 262144, 1, 458791, 0, 2, 524327, 0, 2, 589863, 262144, 1, 655399, 131072, 2, 720935, 262144, 1, 786471, 131072, 2, 852007, 131072, 2, 917543, 131072, 2, 983079, 0, 2, 1048615, 262144, 1, 1114151, 131072, 2, 1179687, 0, 2, 1245223, 131072, 2, 1310759, 262144, 1, 1376257, 65536, 3, 1376258, 65536, 3, 1376259, 0, 3, 1376260, 131072, 3, 1376261, 131072, 3, 1376262, 131072, 3, 1376263, 65536, 3, 1376264, 131072, 3, 1376265, 0, 3, 1376266, 0, 3, 1376267, 0, 3, 1376268, 131072, 3, 1376269, 0, 3, 1376270, 0, 3, 1376271, 131072, 3, 1376272, 65536, 3, 1376273, 65536, 3, 1376274, 65536, 3, 1376275, 131072, 3, 1376276, 65536, 3, 1376277, 131072, 3, 1376278, 131072, 3, 1376279, 65536, 3, 1376280, 0, 3, 1376281, 0, 3, 1376282, 65536, 3, 1376283, 0, 3, 1376284, 131072, 3, 1376285, 131072, 3, 1376286, 0, 3, 1376287, 0, 3, 1376288, 131072, 3, 1376289, 65536, 3, 1376290, 65536, 3, 1376291, 0, 3, 1376292, 65536, 3, 1376293, 65536, 3, 1376294, 131072, 3, 65536, 196608, 1, 131072, 65536, 0, 196608, 196608, 1, 262144, 65536, 0, 327680, 65536, 2, 393216, 65536, 2, 458752, 65536, 0, 524288, 65536, 2, 589824, 65536, 2, 655360, 196608, 1, 720896, 65536, 2, 786432, 65536, 0, 851968, 196608, 1, 917504, 65536, 0, 983040, 65536, 2, 1048576, 196608, 1, 1114112, 196608, 1, 1179648, 65536, 0, 1245184, 65536, 2, 1310720, 65536, 2)
 
-[node name="Character" parent="." instance=ExtResource("4_stfbw")]
+[node name="Character" parent="." instance=ExtResource("5_nlm33")]
 position = Vector2(323, 175)
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_jr0pq")]
+[node name="EnemySpawner" parent="." instance=ExtResource("6_blih5")]
 position = Vector2(567, 284)
 
-[node name="EnemySpawner2" parent="." instance=ExtResource("5_jr0pq")]
+[node name="EnemySpawner2" parent="." instance=ExtResource("6_blih5")]
 position = Vector2(570, 67)
 
-[node name="EnemySpawner3" parent="." instance=ExtResource("5_jr0pq")]
+[node name="EnemySpawner3" parent="." instance=ExtResource("6_blih5")]
 position = Vector2(80, 295)
 
-[node name="EnemySpawner4" parent="." instance=ExtResource("5_jr0pq")]
+[node name="EnemySpawner4" parent="." instance=ExtResource("6_blih5")]
 position = Vector2(62, 66)
 
-[node name="PickableSpawner" parent="." instance=ExtResource("7_1l016")]
+[node name="PickableSpawner" parent="." instance=ExtResource("7_a84ky")]
 
-[node name="LevelUp" parent="." instance=ExtResource("6_hk76x")]
+[node name="LevelUp" parent="." instance=ExtResource("8_xf85e")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("7_nqa10")]
+[node name="PauseMenu" parent="." instance=ExtResource("9_duejt")]
 offset_left = 278.0
 offset_top = 124.0
 offset_right = 278.0

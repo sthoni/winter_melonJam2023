@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://b430b0ffb7o5l"]
 
-[ext_resource type="Script" path="res://Character.gd" id="1_d6u6j"]
-[ext_resource type="Resource" uid="uid://wjc0mmxfdygs" path="res://character.tres" id="2_07pdc"]
-[ext_resource type="Script" path="res://Wand.gd" id="2_t0h4w"]
+[ext_resource type="Script" path="res://character/character.gd" id="1_40dlu"]
+[ext_resource type="Resource" uid="uid://wjc0mmxfdygs" path="res://character/character.tres" id="2_07pdc"]
+[ext_resource type="Script" path="res://components/wand.gd" id="3_2y6lr"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
-[ext_resource type="Script" path="res://player_movement_velocity_input.gd" id="5_be6xw"]
-[ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://Components/MovementComponent.tscn" id="7_vvcke"]
+[ext_resource type="Script" path="res://character/character_movement_velocity_input.gd" id="5_sftdt"]
+[ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://components/movement_component.tscn" id="6_7eyby"]
 [ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="8_632va"]
-[ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://Components/HealthComponent.tscn" id="9_eflpk"]
+[ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://components/health_component.tscn" id="8_dq0lq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jy0w3"]
 radius = 13.0
@@ -17,7 +17,7 @@ radius = 13.0
 [node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("health_component") groups=["player"]]
 collision_layer = 2
 motion_mode = 1
-script = ExtResource("1_d6u6j")
+script = ExtResource("1_40dlu")
 stats = ExtResource("2_07pdc")
 health_component = NodePath("HealthComponent")
 
@@ -25,7 +25,7 @@ health_component = NodePath("HealthComponent")
 unique_name_in_owner = true
 position = Vector2(-3, 3)
 gizmo_extents = 37.0
-script = ExtResource("2_t0h4w")
+script = ExtResource("3_2y6lr")
 
 [node name="CastTimer" type="Timer" parent="Wand"]
 one_shot = true
@@ -47,14 +47,14 @@ texture = ExtResource("3_e6ta1")
 hframes = 2
 
 [node name="PlayerMovementVelocityInput" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("5_be6xw")
+script = ExtResource("5_sftdt")
 actor = NodePath("..")
 
-[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("7_vvcke")]
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("6_7eyby")]
 actor = NodePath("..")
 step_sound = ExtResource("8_632va")
 
-[node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("9_eflpk")]
+[node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("8_dq0lq")]
 actor = NodePath("..")
 
 [connection signal="timeout" from="Wand/CastTimer" to="Wand" method="cast"]

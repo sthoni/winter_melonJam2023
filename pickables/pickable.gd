@@ -23,11 +23,11 @@ func _on_pick_up_area_body_entered(body):
 		Global.PickableKind.PLATANO:
 			if body is Enemy:
 				body.stats.movement_stats.slow_down(50)
-			if body.name is Character:
+			if body is Character:
 				body.stats.movement_stats.slow_down(50)
 		Global.PickableKind.ARMOR1:
-			if body.name == "Enemy":
+			if body is Enemy:
 				body.stats.health_stats.heal(10)
-			if body.name == "Character":
+			if body is Character:
 				body.stats.health_stats.heal(50)
 	_on_pickable_picked_up()

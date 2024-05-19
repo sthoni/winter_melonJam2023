@@ -17,10 +17,10 @@ func set_character_stats(value: CharacterStats) -> void:
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
 
-	update_player()
+	update_character()
 
 # Das wird nötig, wenn man noch ein UI-Element beim Player hat.
-func update_player() -> void:
+func update_character() -> void:
 	if not stats is CharacterStats: 
 		return
 	if not is_inside_tree(): 

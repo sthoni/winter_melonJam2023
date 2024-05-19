@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://kh3gp6km022u" path="res://enemies/enemy.tscn" id="1_23mym"]
 [ext_resource type="Script" path="res://enemies/enemy_yellow.gd" id="2_1c160"]
-[ext_resource type="Texture2D" uid="uid://bkwfcs3ruhkte" path="res://assets/enemy_yellow.png" id="3_ofnrp"]
+[ext_resource type="Texture2D" uid="uid://bkwfcs3ruhkte" path="res://assets/enemies/enemy_yellow.png" id="3_yyngo"]
 
 [node name="EnemyRed" instance=ExtResource("1_23mym")]
 script = ExtResource("2_1c160")
 
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("3_ofnrp")
+texture = ExtResource("3_yyngo")

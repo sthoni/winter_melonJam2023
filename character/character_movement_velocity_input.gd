@@ -1,6 +1,6 @@
 extends Node
 
-class_name  PlayerMovementVelocityInput
+class_name  CharacterMovementVelocityInput
 
 @export var actor: CharacterBody2D
 

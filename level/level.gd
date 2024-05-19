@@ -17,7 +17,7 @@ func _ready():
 	Global.kill.connect(level_up)
 	Global.kill.connect(spawn_pickable)
 	MusicPlayer.play(music, true)
-	Events.player_died.connect(pauseMenu.bind(true))
+	Events.character_died.connect(pauseMenu.bind(true))
 
 
 
