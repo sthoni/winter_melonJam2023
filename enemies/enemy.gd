@@ -2,7 +2,8 @@ extends CharacterBody2D
 class_name Enemy
 
 @export var stats: EnemyStats  : set = set_enemy_stats
-@onready var color: Global.EnemyType
+
+@onready var sprite: Sprite2D = $Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,9 @@ func _ready():
 
 func set_enemy_stats(value: EnemyStats) -> void:
 	stats = value.create_instance()
+	if not sprite:
+		await ready
+	sprite.texture = stats.sprite
 	
 	if not stats.stats_changed.is_connected(update_stats):
 		stats.stats_changed.connect(update_stats)
