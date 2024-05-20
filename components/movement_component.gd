@@ -19,6 +19,10 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	actor.move_and_slide()
+	if actor.velocity.x < 0:
+		actor.sprite.frame = 1
+	elif actor.velocity.x > 0:
+		actor.sprite.frame = 0
 	if !step_playing && step_timer.is_stopped():
 		audio_player.play()
 		step_playing = true
