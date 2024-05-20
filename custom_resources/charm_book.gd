@@ -1,6 +1,6 @@
-extends Resource
-
 class_name CharmBook
+
+extends Resource
 
 signal charm_book_size_changed(charms_amount: int)
 

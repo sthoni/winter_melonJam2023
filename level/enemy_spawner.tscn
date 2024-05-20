@@ -1,14 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwyxdrm32x73p"]
+[gd_scene load_steps=4 format=3 uid="uid://c7ev23jm828t5"]
 
 [ext_resource type="Script" path="res://level/enemy_spawner.gd" id="1_2baa6"]
+[ext_resource type="Resource" uid="uid://cb52u8816t7wd" path="res://level/level_1_enemy_pool.tres" id="2_7w2mp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cyl3w"]
-size = Vector2(56, 51)
+[sub_resource type="CircleShape2D" id="CircleShape2D_uk2mr"]
 
 [node name="EnemySpawner" type="Area2D" groups=["spawner"]]
-position = Vector2(330, 78)
 script = ExtResource("1_2baa6")
+enemy_pool = ExtResource("2_7w2mp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -1)
-shape = SubResource("RectangleShape2D_cyl3w")
+shape = SubResource("CircleShape2D_uk2mr")

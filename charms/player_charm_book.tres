@@ -7,4 +7,4 @@
 
 [resource]
 script = ExtResource("1_s3y8a")
-charms = Array[Resource("res://custom_resources/charm.gd")]([ExtResource("1_p1kw0"), ExtResource("2_35wx8"), ExtResource("3_ejtsr")])
+charms = Array[Resource("res://custom_resources/charm.gd")]([ExtResource("2_35wx8"), ExtResource("1_p1kw0"), ExtResource("3_ejtsr")])

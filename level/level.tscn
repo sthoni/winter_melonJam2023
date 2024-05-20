@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1wj4u3jkskwa" path="res://assets/background_tilemap.png" id="3_2xvqm"]
 [ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="4_7hbp0"]
 [ext_resource type="PackedScene" uid="uid://b430b0ffb7o5l" path="res://character/character.tscn" id="5_nlm33"]
-[ext_resource type="PackedScene" uid="uid://bwyxdrm32x73p" path="res://level/enemy_spawner.tscn" id="6_i3k5h"]
+[ext_resource type="PackedScene" uid="uid://c7ev23jm828t5" path="res://level/enemy_spawner.tscn" id="6_i3k5h"]
 [ext_resource type="PackedScene" uid="uid://2bbpqlydy4bk" path="res://level/pickable_spawner.tscn" id="7_a84ky"]
 [ext_resource type="PackedScene" uid="uid://yn61wgr3kj72" path="res://ui/level_up.tscn" id="8_xf85e"]
 [ext_resource type="PackedScene" uid="uid://by5ifcv8fa5pa" path="res://ui/pause_menu.tscn" id="9_duejt"]
