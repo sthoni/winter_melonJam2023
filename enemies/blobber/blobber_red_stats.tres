@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=6 format=3 uid="uid://74ilwj032200"]
+
+[ext_resource type="Script" path="res://custom_resources/health_stats.gd" id="1_12grv"]
+[ext_resource type="Resource" uid="uid://usdkxon0y4os" path="res://enemies/enemy_fast_movement_stats.tres" id="2_3g1lm"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="2_8lfe4"]
+[ext_resource type="Texture2D" uid="uid://ludkg37uq54m" path="res://assets/enemies/enemy_red.png" id="4_uflq5"]
+
+[sub_resource type="Resource" id="Resource_xoltr"]
+script = ExtResource("1_12grv")
+max_health = 5
+
+[resource]
+script = ExtResource("2_8lfe4")
+kind = 3
+sprite = ExtResource("4_uflq5")
+movement_stats = ExtResource("2_3g1lm")
+health_stats = SubResource("Resource_xoltr")

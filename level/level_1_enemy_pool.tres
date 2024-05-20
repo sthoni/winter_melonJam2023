@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyPool" load_steps=6 format=3 uid="uid://cb52u8816t7wd"]
+
+[ext_resource type="Resource" uid="uid://74ilwj032200" path="res://enemies/blobber/blobber_red_stats.tres" id="1_72nfq"]
+[ext_resource type="Script" path="res://custom_resources/enemy_pool.gd" id="1_td0wu"]
+[ext_resource type="Resource" uid="uid://cmt4a33msmqm3" path="res://enemies/blobber/blobber_green_stats.tres" id="2_1if3f"]
+[ext_resource type="Resource" uid="uid://dq1ah1rd4j0ok" path="res://enemies/blobber/blobber_blue_stats.tres" id="3_a7a6g"]
+[ext_resource type="Resource" uid="uid://cepy6a1j8ci1k" path="res://enemies/blobber/blobber_yellow_stats.tres" id="4_kyl2o"]
+
+[resource]
+script = ExtResource("1_td0wu")
+enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("1_72nfq"), ExtResource("2_1if3f"), ExtResource("3_a7a6g"), ExtResource("4_kyl2o")])

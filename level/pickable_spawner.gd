@@ -19,7 +19,6 @@ func _process(_delta):
 
 func create_pickable(kind: Global.PickableKind) -> Pickable:
 	var pickable: Pickable
-	print(kind)
 	match kind:
 		Global.PickableKind.PLATANO:
 			pickable = platano_resource.instantiate()
