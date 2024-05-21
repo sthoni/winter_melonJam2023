@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c3po0i6ycn4eb"]
+
+[ext_resource type="FontFile" uid="uid://2ic073uufh0b" path="res://assets/DungeonFont.ttf" id="1_s7m4q"]
+
+[resource]
+default_font = ExtResource("1_s7m4q")
+default_font_size = 32
+Button/constants/h_separation = 16
+VBoxContainer/constants/separation = 16
