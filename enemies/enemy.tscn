@@ -1,12 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://kh3gp6km022u"]
+[gd_scene load_steps=14 format=3 uid="uid://kh3gp6km022u"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_kc1q1"]
-[ext_resource type="Resource" uid="uid://1ob05378i6ru" path="res://enemies/enemy_stats.tres" id="2_sh3vp"]
+[ext_resource type="Script" path="res://custom_resources/health_stats.gd" id="2_yhy1q"]
 [ext_resource type="Texture2D" uid="uid://bhsv71aw282lo" path="res://assets/enemies/enemy_proto.png" id="3_63he1"]
+[ext_resource type="Resource" uid="uid://coy5jvnkq8ot2" path="res://enemies/enemy_movement_stats.tres" id="3_o8bjb"]
+[ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="4_604wb"]
 [ext_resource type="Script" path="res://enemies/enemy_movement_velocity_ki.gd" id="4_f4wyv"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://components/health_component.tscn" id="4_qdgj5"]
+[ext_resource type="Texture2D" uid="uid://dgwlve6a8rt5y" path="res://assets/enemies/enemy_green.png" id="5_43mda"]
 [ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="5_aba5e"]
 [ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://components/movement_component.tscn" id="6_4mkwq"]
+
+[sub_resource type="Resource" id="Resource_0a1fg"]
+script = ExtResource("2_yhy1q")
+max_health = 5
+
+[sub_resource type="Resource" id="Resource_8c1b4"]
+script = ExtResource("4_604wb")
+kind = 0
+sprite = ExtResource("5_43mda")
+movement_stats = ExtResource("3_o8bjb")
+health_stats = SubResource("Resource_0a1fg")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kbwjk"]
 radius = 16.0
@@ -16,7 +30,7 @@ collision_layer = 4
 collision_mask = 7
 platform_floor_layers = 4294967040
 script = ExtResource("1_kc1q1")
-stats = ExtResource("2_sh3vp")
+stats = SubResource("Resource_8c1b4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_kbwjk")

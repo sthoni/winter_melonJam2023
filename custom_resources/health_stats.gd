@@ -22,3 +22,9 @@ func take_damage(damage : int) -> void:
 
 func heal(amount : int) -> void:
 	self.health += amount
+
+
+func create_instance() -> HealthStats:
+	var instance: HealthStats = self.duplicate()
+	instance.health = max_health
+	return instance

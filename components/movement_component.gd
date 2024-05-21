@@ -29,6 +29,8 @@ func _physics_process(delta: float) -> void:
 		step_timer.wait_time = 30.0 / actor.velocity.length()
 		step_timer.start()
 
+func slow_down(amount: int) -> void:
+	actor.stats.movement_stats.slow_down(amount)
 
 func _on_audio_stream_player_finished() -> void:
 	step_playing = false
