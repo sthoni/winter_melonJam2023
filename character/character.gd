@@ -48,9 +48,8 @@ func get_input():
 
 func _physics_process(_delta):
 	get_input()
-	move_and_slide()
 
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("enemies"):
-		health_component.reduce_health(10)
+		health_component.reduce_health(5)

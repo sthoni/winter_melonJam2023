@@ -6,7 +6,7 @@
 script = ExtResource("1_ovhfe")
 
 [node name="InvincibleTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 one_shot = true
 autostart = true
 

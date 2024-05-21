@@ -11,5 +11,5 @@ signal stats_changed
 func create_instance() -> Resource:
 	var instance: Stats = self.duplicate()
 	instance.movement_stats = movement_stats.duplicate(true)
-	instance.health_stats = health_stats.duplicate(true)
+	instance.health_stats = health_stats.create_instance()
 	return instance

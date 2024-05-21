@@ -1,9 +1,11 @@
-extends Node
 class_name HealthComponent
+
+extends Node
 
 signal health_depleted
 
 @export var actor: CharacterBody2D
+
 @onready var is_invincible := false
 @onready var invincible_timer := $InvincibleTimer
 
@@ -28,8 +30,9 @@ func reduce_health(amount):
 			elif actor is Character:
 				Events.character_died.emit()
 			actor.queue_free()
-		is_invincible = true
-		invincible_timer.start()
+		if actor is Character:
+			is_invincible = true
+			invincible_timer.start()
 
 
 func add_health(amount):

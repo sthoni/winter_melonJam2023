@@ -13,5 +13,5 @@ speed = 300
 area_of_effect = 1
 cast_time = 0.2
 icon = ExtResource("1_gy3mi")
-tooltip_text = null
+tooltip_text = ""
 sound = ExtResource("3_364os")
