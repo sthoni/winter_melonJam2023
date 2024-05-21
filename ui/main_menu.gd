@@ -13,5 +13,9 @@ func _process(delta):
 	pass
 
 
-func _on_menu_button_pressed():
+func _on_new_run_pressed() -> void:
 	get_tree().change_scene_to_packed(gamescene)
+
+
+func _on_exit_pressed() -> void:
+	get_tree().quit()
