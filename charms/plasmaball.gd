@@ -1,7 +1,7 @@
 extends Charm
 
 var base_damage := 2
-var slow_amount := 10
+var slow_amount := 50
 
 func apply_effects(targets: Array[Node2D]) -> void:
 	var damage_effect: DamageEffect = DamageEffect.new()

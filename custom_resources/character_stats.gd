@@ -32,4 +32,5 @@ func create_instance() -> Resource:
 	instance.reset_mana()
 	instance.charm_book = instance.starting_charms.duplicate(true)
 	instance.health_stats = health_stats.create_instance()
+	instance.movement_stats = movement_stats.create_instance()
 	return instance

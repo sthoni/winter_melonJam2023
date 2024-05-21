@@ -13,6 +13,6 @@ func _physics_process(delta: float) -> void:
 	if player:
 		var direction = player.global_position - actor.position
 		if direction.length() > 0:
-			actor.velocity = actor.velocity.move_toward(direction.normalized() * actor.stats.movement_stats.max_speed, actor.stats.movement_stats.acceleration * delta)
+			actor.velocity = actor.velocity.move_toward(direction.normalized() * actor.stats.movement_stats.speed, actor.stats.movement_stats.acceleration * delta)
 		else:
 			actor.velocity = actor.velocity.move_toward(Vector2.ZERO, actor.stats.movement_stats.friction * delta)
