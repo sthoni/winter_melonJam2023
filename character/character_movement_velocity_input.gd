@@ -1,9 +1,7 @@
+class_name CharacterMovementVelocityInput
 extends Node
 
-class_name  CharacterMovementVelocityInput
-
 @export var actor: CharacterBody2D
-
 
 func _physics_process(delta: float) -> void:
 	var input := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

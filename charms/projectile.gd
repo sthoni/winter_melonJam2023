@@ -1,12 +1,10 @@
+class_name Projectile
 extends Area2D
 
-class_name Projectile
-
-@export var charm: Charm : set = set_charm
+@export var charm: Charm: set = set_charm
 
 @onready var area_of_effect: Area2D = $AreaOfEffect
 @onready var sprite: Sprite2D = $Sprite2D
-
 
 func set_charm(value: Charm) -> void:
 	if not is_node_ready():
@@ -17,7 +15,6 @@ func set_charm(value: Charm) -> void:
 
 func _physics_process(delta):
 	position += - transform.y * charm.speed * delta
-
 
 func _on_Bullet_body_entered(body: Node2D):
 	if body is Character:

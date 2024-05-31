@@ -1,19 +1,10 @@
 class_name HealthComponent
-
 extends Node
 
 @export var actor: CharacterBody2D
 
 @onready var is_invincible := false
 @onready var invincible_timer := $InvincibleTimer
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
 
 func reduce_health(amount):
 	if !is_invincible:

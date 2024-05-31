@@ -1,3 +1,4 @@
+class_name GameOverMenu
 extends Control
 
 func _on_quit_pressed():

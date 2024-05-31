@@ -1,6 +1,5 @@
-extends Resource
-
 class_name Charm
+extends Resource
 
 enum Type {PROJECTILE}
 
@@ -16,7 +15,6 @@ enum Type {PROJECTILE}
 @export var icon: Texture
 @export_multiline var tooltip_text: String
 @export var sound: AudioStream
-
 
 func cast() -> void:
 	Events.charm_cast.emit(self)

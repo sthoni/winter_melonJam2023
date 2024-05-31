@@ -1,3 +1,4 @@
+class_name MainMenu
 extends Control
 
 func _on_new_game_pressed() -> void:

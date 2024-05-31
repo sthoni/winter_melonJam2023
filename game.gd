@@ -1,11 +1,11 @@
 class_name Game
-
 extends Node
 
 const MAIN_MENU := preload ("res://ui/main_menu.tscn")
 const GAME_OVER_MENU := preload ("res://ui/game_over_menu.tscn")
 const LEVEL := preload ("res://level/level.tscn")
 
+@export var music: AudioStream
 @export var start_level: int = 1
 @export var start_character: CharacterStats
 @export var level_enemy_pools: Array[EnemyPool]
@@ -21,6 +21,8 @@ func _ready() -> void:
 	Events.exit_game_pressed.connect(_on_exit_game_pressed)
 	Events.character_died.connect(_on_character_died)
 	Events.all_enemies_died.connect(_on_all_enemies_died)
+
+	MusicPlayer.play(music, true)
 
 	char_stat = start_character.create_instance()
 

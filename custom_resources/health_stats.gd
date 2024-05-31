@@ -1,5 +1,4 @@
 class_name HealthStats
-
 extends Resource
 
 signal health_stats_changed

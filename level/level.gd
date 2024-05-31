@@ -1,8 +1,6 @@
 class_name Level
-
 extends Node2D
 
-@export var music: AudioStream
 @export var enemy_pool: EnemyPool
 @export var char_stats: CharacterStats
 
@@ -20,7 +18,6 @@ func _ready():
 
 func start_level():
 	get_tree().paused = false
-	MusicPlayer.play(music, true)
 	character.stats = char_stats
 	character_stats_ui.char_stats = char_stats
 	spawn_enemies()

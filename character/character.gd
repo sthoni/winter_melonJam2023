@@ -7,9 +7,6 @@ extends CharacterBody2D
 @onready var wand := $Wand
 @onready var sprite := $Sprite2D
 
-func _ready():
-	pass
-
 func set_character_stats(value: CharacterStats) -> void:
 	stats = value
 

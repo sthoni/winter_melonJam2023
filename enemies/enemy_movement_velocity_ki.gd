@@ -1,12 +1,8 @@
+class_name EnemyMovementVelocityKi
 extends Node
-
-class_name  EnemyMovementVelocityKi
 
 @export var actor: CharacterBody2D
 var player: Character
-
-func _ready() -> void:
-	pass
 
 func _physics_process(delta: float) -> void:
 	player = get_tree().get_first_node_in_group("player")

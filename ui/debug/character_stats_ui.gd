@@ -1,5 +1,4 @@
 class_name CharacterStatsUi
-
 extends Control
 
 @export var char_stats: CharacterStats: set = set_char_stats

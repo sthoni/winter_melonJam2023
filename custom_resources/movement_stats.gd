@@ -1,6 +1,5 @@
-extends Resource
-
 class_name MovementStats
+extends Resource
 
 signal movement_stats_changed
 
