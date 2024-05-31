@@ -6,7 +6,6 @@ extends Node2D
 
 @onready var spawners: Array[EnemySpawner]
 @onready var pickable_spawner: PickableSpawner = $PickableSpawner
-@onready var timer: float = 0
 @onready var character_stats_ui: CharacterStatsUi = $CharacterStatsUi
 @onready var character: Character = $Character
 

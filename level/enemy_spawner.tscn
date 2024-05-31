@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7ev23jm828t5"]
+[gd_scene load_steps=2 format=3 uid="uid://c7ev23jm828t5"]
 
 [ext_resource type="Script" path="res://level/enemy_spawner.gd" id="1_2baa6"]
-[ext_resource type="Resource" uid="uid://cb52u8816t7wd" path="res://level/level_1_enemy_pool.tres" id="2_7w2mp"]
 
 [node name="EnemySpawner" type="Marker2D" groups=["spawner"]]
 script = ExtResource("1_2baa6")
-enemy_pool = ExtResource("2_7w2mp")

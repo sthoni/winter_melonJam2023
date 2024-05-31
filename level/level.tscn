@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://c8l4ht0of3l0k"]
+[gd_scene load_steps=14 format=3 uid="uid://c8l4ht0of3l0k"]
 
 [ext_resource type="Script" path="res://level/level.gd" id="1_c5ve1"]
-[ext_resource type="AudioStream" uid="uid://bpm2to01is6gr" path="res://assets/audio/theme.wav" id="2_beorr"]
 [ext_resource type="Texture2D" uid="uid://c1wj4u3jkskwa" path="res://assets/background_tilemap.png" id="3_2xvqm"]
 [ext_resource type="Resource" uid="uid://cb52u8816t7wd" path="res://level/level_1_enemy_pool.tres" id="3_58fxk"]
 [ext_resource type="Texture2D" uid="uid://geffhogpomxm" path="res://assets/level_tilemap.png" id="4_7hbp0"]
@@ -119,7 +118,6 @@ sources/0 = SubResource("TileSetAtlasSource_iiynm")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_c5ve1")
-music = ExtResource("2_beorr")
 enemy_pool = ExtResource("3_58fxk")
 char_stats = ExtResource("10_xvltc")
 

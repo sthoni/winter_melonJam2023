@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bc0nm2equsqv5"]
+[gd_scene load_steps=15 format=3 uid="uid://bc0nm2equsqv5"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_vy55k"]
 [ext_resource type="AudioStream" uid="uid://bpm2to01is6gr" path="res://assets/audio/theme.wav" id="2_0soyc"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cepy6a1j8ci1k" path="res://enemies/blobber/blobber_yellow_stats.tres" id="7_vhgw2"]
 [ext_resource type="Script" path="res://custom_resources/enemy_pool.gd" id="8_3pkdr"]
 [ext_resource type="Resource" uid="uid://dq1ah1rd4j0ok" path="res://enemies/blobber/blobber_blue_stats.tres" id="9_egbwk"]
+[ext_resource type="PackedScene" uid="uid://bkra2j87guvs8" path="res://ui/pause_menu.tscn" id="11_cqxdh"]
 
 [sub_resource type="Resource" id="Resource_otb1j"]
 script = ExtResource("8_3pkdr")
@@ -30,3 +31,6 @@ start_character = ExtResource("2_b626w")
 level_enemy_pools = Array[ExtResource("8_3pkdr")]([ExtResource("3_6qpnm"), ExtResource("3_6qpnm"), ExtResource("4_3y6ec"), SubResource("Resource_otb1j"), SubResource("Resource_q323a"), SubResource("Resource_4e2tu")])
 
 [node name="CurrentView" type="Node" parent="."]
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_cqxdh")]
+visible = false

@@ -11,9 +11,11 @@ const LEVEL := preload ("res://level/level.tscn")
 @export var level_enemy_pools: Array[EnemyPool]
 
 @onready var current_view: Node = $CurrentView
+@onready var pause_menu: PauseMenu = $PauseMenu
 
 var char_stat: CharacterStats
 var current_level: int
+var pause_possible: bool
 
 func _ready() -> void:
 	@warning_ignore("return_value_discarded")
@@ -43,10 +45,12 @@ func _change_view(scene: PackedScene) -> Node:
 
 func _on_new_game_pressed() -> void:
 	current_level = start_level
+	pause_possible = true
 	char_stat = start_character.create_instance()
 	start_next_level()
 
 func _on_main_menu_pressed() -> void:
+	pause_possible = false
 	@warning_ignore("return_value_discarded")
 	_change_view(MAIN_MENU)
 
@@ -54,9 +58,15 @@ func _on_exit_game_pressed() -> void:
 	get_tree().quit()
 
 func _on_all_enemies_died() -> void:
-	current_level += 1
-	print("[DEBUG] Current Level %s" % [current_level])
-	start_next_level()
+	print("[DEBUG] Alle Gegner besiegt. Pause...")
+	@warning_ignore("return_value_discarded")
+	get_tree().create_timer(2, false).timeout.connect(
+		func() -> void:
+			if pause_possible:
+				current_level += 1
+				print("[DEBUG] Current Level %s" % [current_level])
+				start_next_level()
+	)
 
 func start_next_level() -> void:
 	var level_scene: Level = _change_view(LEVEL) as Level
@@ -65,6 +75,7 @@ func start_next_level() -> void:
 	level_scene.start_level()
 
 func _on_character_died() -> void:
+	pause_possible = false
 	@warning_ignore("return_value_discarded")
 	_change_view(GAME_OVER_MENU)
 
@@ -72,3 +83,21 @@ func _on_character_died() -> void:
 
 # Die Level haben jetzt feste Gegner. Hat Vor- und Nachteile.
 # Wahrscheinlich wäre eine Kombination aus zufälligen und festgelegten Gegnern gut.
+
+# Pausen-Menü
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause") and pause_possible:
+		if pause_menu.visible:
+			_unpause()
+		else:
+			_pause()
+			
+		get_viewport().set_input_as_handled()
+
+func _pause() -> void:
+	pause_menu.show()
+	get_tree().paused = true
+
+func _unpause() -> void:
+	pause_menu.hide()
+	get_tree().paused = false

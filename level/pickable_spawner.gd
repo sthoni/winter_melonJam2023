@@ -14,13 +14,11 @@ func create_pickable(kind: Global.PickableKind) -> Pickable:
 		Global.PickableKind.PLATANO:
 			pickable = platano_resource.instantiate()
 			pickable.kind = Global.PickableKind.PLATANO
-			if pickable.sprite:
-				pickable.sprite.texture = platano_texture
+			pickable.get_node("Sprite2D").texture = platano_texture
 		Global.PickableKind.ARMOR1:
 			pickable = armor1_resource.instantiate()
 			pickable.kind = Global.PickableKind.ARMOR1
-			if pickable.sprite:
-				pickable.sprite.texture = armor1_texture
+			pickable.get_node("Sprite2D").texture = armor1_texture
 		Global.PickableKind.WIGGLEWAND:
 			pickable = wigglewand_resource.instantiate()
 		Global.PickableKind.MOVEFAST:
