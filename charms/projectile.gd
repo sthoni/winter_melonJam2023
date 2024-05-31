@@ -13,13 +13,17 @@ func set_charm(value: Charm) -> void:
 	sprite.texture = charm.icon
 	area_of_effect.apply_scale(Vector2(charm.area_of_effect, charm.area_of_effect))
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	position += - transform.y * charm.speed * delta
 
-func _on_Bullet_body_entered(body: Node2D):
+func _on_Bullet_body_entered(body: Actor) -> void:
 	if body is Character:
 		return
 	if body.is_in_group("enemies"):
-		var targets = area_of_effect.get_overlapping_bodies()
+		var overlapping_bodies := area_of_effect.get_overlapping_bodies()
+		var targets: Array[Actor] = []
+		for overlapping_body in overlapping_bodies:
+			if body is Actor:
+				targets.append(body)
 		charm.apply_effects(targets)
 	queue_free()

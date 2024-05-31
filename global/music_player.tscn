@@ -6,15 +6,22 @@
 script = ExtResource("1_h1g0g")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0
 
 [node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="."]
+volume_db = -20.0

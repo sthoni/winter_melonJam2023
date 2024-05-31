@@ -22,6 +22,15 @@ Events="*res://global/events.gd"
 MusicPlayer="*res://global/music_player.tscn"
 SfxPlayer="*res://global/sfx_player.tscn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/unsafe_property_access=1
+gdscript/warnings/unsafe_method_access=1
+gdscript/warnings/unsafe_cast=1
+gdscript/warnings/unsafe_call_argument=1
+gdscript/warnings/return_value_discarded=1
+
 [display]
 
 window/size/viewport_width=640

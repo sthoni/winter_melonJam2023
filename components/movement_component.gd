@@ -1,7 +1,7 @@
 class_name MovementComponent
 extends Node
 
-@export var actor: CharacterBody2D
+@export var actor: Actor
 @export var min_slide_angle: float = 0.0
 @export var step_sound: AudioStream
 
@@ -16,7 +16,8 @@ func _ready() -> void:
 	actor.motion_mode = actor.MOTION_MODE_GROUNDED
 	audio_player.stream = step_sound
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	@warning_ignore("return_value_discarded")
 	actor.move_and_slide()
 	if actor.velocity.x < 0:
 		actor.sprite.frame = 1

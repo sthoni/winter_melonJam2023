@@ -14,12 +14,11 @@ radius = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s34f0"]
 
-[node name="Character" type="CharacterBody2D" node_paths=PackedStringArray("health_component") groups=["player"]]
+[node name="Character" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_40dlu")
 stats = ExtResource("2_07pdc")
-health_component = NodePath("HealthComponent")
 
 [node name="Wand" type="Marker2D" parent="."]
 unique_name_in_owner = true

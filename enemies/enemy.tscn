@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://kh3gp6km022u"]
+[gd_scene load_steps=13 format=3 uid="uid://kh3gp6km022u"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_kc1q1"]
 [ext_resource type="Script" path="res://custom_resources/health_stats.gd" id="2_yhy1q"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="4_604wb"]
 [ext_resource type="Script" path="res://enemies/enemy_movement_velocity_ki.gd" id="4_f4wyv"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://components/health_component.tscn" id="4_qdgj5"]
-[ext_resource type="Texture2D" uid="uid://dgwlve6a8rt5y" path="res://assets/enemies/enemy_green.png" id="5_43mda"]
 [ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="5_aba5e"]
 [ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://components/movement_component.tscn" id="6_4mkwq"]
 
@@ -18,7 +17,6 @@ max_health = 5
 [sub_resource type="Resource" id="Resource_8c1b4"]
 script = ExtResource("4_604wb")
 kind = 0
-sprite = ExtResource("5_43mda")
 movement_stats = ExtResource("3_o8bjb")
 health_stats = SubResource("Resource_0a1fg")
 
@@ -49,5 +47,3 @@ actor = NodePath("..")
 [node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("6_4mkwq")]
 actor = NodePath("..")
 step_sound = ExtResource("5_aba5e")
-
-[connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]

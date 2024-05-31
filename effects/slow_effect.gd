@@ -3,9 +3,9 @@ extends Effect
 
 var amount := 0
 
-func execute(targets: Array[Node2D]) -> void:
+func execute(targets: Array[Actor]) -> void:
 	for target in targets:
 		if not target:
 			continue
 		if target.has_node("MovementComponent"):
-			target.get_node("MovementComponent").slow_down(amount)
+			target.movement_component.slow_down(amount)

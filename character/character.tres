@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="CharacterStats" load_steps=5 format=3 uid="uid://wjc0mmxfdygs"]
+[gd_resource type="Resource" script_class="CharacterStats" load_steps=6 format=3 uid="uid://wjc0mmxfdygs"]
 
 [ext_resource type="Resource" uid="uid://cmulok0i3lkiw" path="res://character/character_movement_stats.tres" id="1_aclax"]
 [ext_resource type="Resource" uid="uid://er3lepwb3o4v" path="res://character/character_health_stats.tres" id="1_eqy88"]
 [ext_resource type="Script" path="res://custom_resources/character_stats.gd" id="1_wwpm4"]
 [ext_resource type="Resource" uid="uid://df0aufk8wabt7" path="res://charms/player_charm_book.tres" id="2_8jd6r"]
+[ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="4_w464b"]
 
 [resource]
 script = ExtResource("1_wwpm4")
@@ -11,5 +12,6 @@ character_name = "Bertrand"
 description = ""
 starting_charms = ExtResource("2_8jd6r")
 max_mana = 10
+sprite = ExtResource("4_w464b")
 movement_stats = ExtResource("1_aclax")
 health_stats = ExtResource("1_eqy88")

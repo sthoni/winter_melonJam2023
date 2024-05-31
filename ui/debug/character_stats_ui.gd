@@ -7,8 +7,9 @@ extends Control
 @onready var movement_label: Label = %MovementLabel
 @onready var charms_label: Label = %CharmsLabel
 
-func _ready():
+func _ready() -> void:
 	set_char_stats(char_stats)
+	@warning_ignore("return_value_discarded")
 	Events.charm_changed.connect(_on_charm_changed)
 
 func set_char_stats(value: CharacterStats) -> void:
@@ -18,9 +19,11 @@ func set_char_stats(value: CharacterStats) -> void:
 		await ready
 
 	if not char_stats.health_stats.health_stats_changed.is_connected(_on_health_stats_changed):
+		@warning_ignore("return_value_discarded")
 		char_stats.health_stats.health_stats_changed.connect(_on_health_stats_changed)
 
 	if not char_stats.movement_stats.movement_stats_changed.is_connected(_on_movement_stats_changed):
+		@warning_ignore("return_value_discarded")
 		char_stats.movement_stats.movement_stats_changed.connect(_on_movement_stats_changed)
 
 	_on_health_stats_changed()

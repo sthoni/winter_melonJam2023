@@ -9,5 +9,6 @@ func add_enemy(enemy: EnemyStats) -> void:
 func _to_string() -> String:
 	var _enemy_strings: PackedStringArray = []
 	for i in enemies.size():
-		_enemy_strings.append("%s: %s" % [i + 1, enemies[i].id])
+		@warning_ignore("return_value_discarded")
+		_enemy_strings.append("%s: %s" % [i + 1, enemies[i].kind])
 	return "\n".join(_enemy_strings)

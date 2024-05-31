@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bc0nm2equsqv5"]
+[gd_scene load_steps=14 format=3 uid="uid://bc0nm2equsqv5"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_vy55k"]
+[ext_resource type="AudioStream" uid="uid://bpm2to01is6gr" path="res://assets/audio/theme.wav" id="2_0soyc"]
 [ext_resource type="Resource" uid="uid://wjc0mmxfdygs" path="res://character/character.tres" id="2_b626w"]
 [ext_resource type="Resource" uid="uid://cb52u8816t7wd" path="res://level/level_1_enemy_pool.tres" id="3_6qpnm"]
 [ext_resource type="Resource" uid="uid://bvp0vv0d033tm" path="res://level/level_2_enemy_pool.tres" id="4_3y6ec"]
@@ -24,6 +25,7 @@ enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource(
 
 [node name="Game" type="Node"]
 script = ExtResource("1_vy55k")
+music = ExtResource("2_0soyc")
 start_character = ExtResource("2_b626w")
 level_enemy_pools = Array[ExtResource("8_3pkdr")]([ExtResource("3_6qpnm"), ExtResource("3_6qpnm"), ExtResource("4_3y6ec"), SubResource("Resource_otb1j"), SubResource("Resource_q323a"), SubResource("Resource_4e2tu")])
 

@@ -2,11 +2,12 @@ class_name Pickable
 extends Area2D
 
 @onready var kind: Global.PickableKind = Global.PickableKind.PLATANO
+@onready var sprite: Sprite2D = $Sprite2D
 	
-func _on_pickable_picked_up():
+func _on_pickable_picked_up() -> void:
 	queue_free()
 
-func _on_pick_up_area_body_entered(body):
+func _on_pick_up_area_body_entered(body: Actor) -> void:
 	match self.kind:
 		Global.PickableKind.PLATANO:
 			if body is Enemy:

@@ -19,7 +19,7 @@ enum Type {PROJECTILE}
 func cast() -> void:
 	Events.charm_cast.emit(self)
 
-func apply_effects(_targets: Array[Node2D]) -> void:
+func apply_effects(_targets: Array[Actor]) -> void:
 	pass
 
 func get_default_tooltip() -> String:

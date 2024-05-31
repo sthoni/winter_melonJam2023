@@ -16,16 +16,20 @@ var char_stat: CharacterStats
 var current_level: int
 
 func _ready() -> void:
+	@warning_ignore("return_value_discarded")
 	Events.new_game_pressed.connect(_on_new_game_pressed)
+	@warning_ignore("return_value_discarded")
 	Events.main_menu_pressed.connect(_on_main_menu_pressed)
+	@warning_ignore("return_value_discarded")
 	Events.exit_game_pressed.connect(_on_exit_game_pressed)
+	@warning_ignore("return_value_discarded")
 	Events.character_died.connect(_on_character_died)
+	@warning_ignore("return_value_discarded")
 	Events.all_enemies_died.connect(_on_all_enemies_died)
 
 	MusicPlayer.play(music, true)
 
-	char_stat = start_character.create_instance()
-
+	@warning_ignore("return_value_discarded")
 	_change_view(MAIN_MENU)
 
 func _change_view(scene: PackedScene) -> Node:
@@ -39,9 +43,11 @@ func _change_view(scene: PackedScene) -> Node:
 
 func _on_new_game_pressed() -> void:
 	current_level = start_level
+	char_stat = start_character.create_instance()
 	start_next_level()
 
 func _on_main_menu_pressed() -> void:
+	@warning_ignore("return_value_discarded")
 	_change_view(MAIN_MENU)
 
 func _on_exit_game_pressed() -> void:
@@ -59,6 +65,7 @@ func start_next_level() -> void:
 	level_scene.start_level()
 
 func _on_character_died() -> void:
+	@warning_ignore("return_value_discarded")
 	_change_view(GAME_OVER_MENU)
 
 # TODO: Daten des Durchgangs könnten noch gespeichert werden.

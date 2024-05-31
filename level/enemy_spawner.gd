@@ -1,7 +1,5 @@
 class_name EnemySpawner
-extends Node
-
-@export var enemy_pool: EnemyPool
+extends Marker2D
 
 @onready var enemy_scene: PackedScene = preload ("res://enemies/enemy.tscn")
 

@@ -1,11 +1,7 @@
-extends CharacterBody2D
 class_name Enemy
+extends Actor
 
-@export var stats: EnemyStats: set = set_enemy_stats
-
-@onready var sprite: Sprite2D = $Sprite2D
-
-func set_enemy_stats(value: EnemyStats) -> void:
+func set_stats(value: Stats) -> void:
 	stats = value.create_instance()
 	if not sprite:
 		await ready
