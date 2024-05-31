@@ -1,5 +1,5 @@
-extends Stats
 class_name EnemyStats
+extends Stats
 
 enum EnemyColor {GREEN, YELLOW, BLUE, RED}
 

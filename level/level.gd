@@ -1,65 +1,42 @@
+class_name Level
 extends Node2D
 
-@export var music: AudioStream
+@export var enemy_pool: EnemyPool
+@export var char_stats: CharacterStats
 
 @onready var spawners: Array[Node] = get_tree().get_nodes_in_group("spawner")
-@onready var pickable_spawner:= $PickableSpawner
-@onready var active_level := 0
-@onready var timer:float = 0
-@onready var pause_menu = $PauseMenu
-var paused = false
+@onready var pickable_spawner := $PickableSpawner
+@onready var timer: float = 0
+@onready var character_stats_ui := $CharacterStatsUi
+@onready var character: Character = $Character
+
+var enemies_in_level: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pause_menu.hide()
-	Global.level_finished.connect(next_level)
-	spawn_enemies(active_level)
-	Global.kill.connect(level_up)
-	Global.kill.connect(spawn_pickable)
-	MusicPlayer.play(music, true)
-	Events.character_died.connect(pauseMenu.bind(true))
+	Events.enemy_died.connect(_on_enemy_died)
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("ui_menu"):
-		pauseMenu(false)
-	if timer > 0:
-		timer -= delta
-		if timer <= 0:
-			$LevelUp.visible = false
-	
-func level_up(pos: Vector2):
-	$LevelUp.visible = true
-	$LevelUp/Animation.current_animation = "level_up"
-	timer = 1.9
+func start_level():
+	get_tree().paused = false
+	character.stats = char_stats
+	character_stats_ui.char_stats = char_stats
+	spawn_enemies()
 
 func spawn_pickable(pos: Vector2):
-	var pickable_type = randi() % 2 #Global.PickableKind.size()
+	var pickable_type = randi() % 2 # Global.PickableKind.size()
 	var new_pickable = pickable_spawner.create_pickable(pickable_type)
 	new_pickable.position = pos
 	add_child.call_deferred(new_pickable)
 
-func spawn_enemies(_level):
-	for enemy in range(active_level + 1):
-		var new_enemy = spawners[randi() % spawners.size()].create_enemy()
+func spawn_enemies() -> void:
+	for enemy_stats in enemy_pool.enemies:
+		var new_enemy = spawners[randi() % spawners.size()].create_enemy(enemy_stats)
 		add_child.call_deferred(new_enemy)
+		enemies_in_level += 1
+		Events.enemy_spawned.emit()
 
-func next_level():
-	active_level += 1
-	spawn_enemies(active_level)
-	
-func pauseMenu(dead: bool):
-	if dead:
-		pause_menu.show()
-		pause_menu.game_over()
-	if paused:
-		pause_menu.hide()
-		Engine.time_scale = 1
-	else:
-		pause_menu.show()
-		Engine.time_scale = 0
-		
-	paused = !paused
-	
+func _on_enemy_died(enemy: Enemy) -> void:
+	spawn_pickable(enemy.position)
+	enemies_in_level -= 1
+	if enemies_in_level == 0:
+		Events.all_enemies_died.emit()

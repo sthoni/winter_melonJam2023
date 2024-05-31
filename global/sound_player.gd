@@ -1,6 +1,5 @@
 extends Node
 
-
 func play(audio: AudioStream, single=false) -> void:
 	if not audio:
 		return
@@ -13,7 +12,6 @@ func play(audio: AudioStream, single=false) -> void:
 			player.stream = audio
 			player.play()
 			break
-
 
 func stop() -> void:
 	for player: AudioStreamPlayer in get_children():

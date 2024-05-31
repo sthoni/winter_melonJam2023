@@ -1,5 +1,5 @@
-extends Node
 class_name MovementComponent
+extends Node
 
 @export var actor: CharacterBody2D
 @export var min_slide_angle: float = 0.0
@@ -16,14 +16,13 @@ func _ready() -> void:
 	actor.motion_mode = actor.MOTION_MODE_GROUNDED
 	audio_player.stream = step_sound
 
-
 func _physics_process(delta: float) -> void:
 	actor.move_and_slide()
 	if actor.velocity.x < 0:
 		actor.sprite.frame = 1
 	elif actor.velocity.x > 0:
 		actor.sprite.frame = 0
-	if !step_playing && step_timer.is_stopped():
+	if !step_playing&&step_timer.is_stopped():
 		audio_player.play()
 		step_playing = true
 		step_timer.wait_time = 30.0 / actor.velocity.length()
