@@ -1,8 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc0nm2equsqv5"]
+[gd_scene load_steps=13 format=3 uid="uid://bc0nm2equsqv5"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_vy55k"]
+[ext_resource type="Resource" uid="uid://wjc0mmxfdygs" path="res://character/character.tres" id="2_b626w"]
+[ext_resource type="Resource" uid="uid://cb52u8816t7wd" path="res://level/level_1_enemy_pool.tres" id="3_6qpnm"]
+[ext_resource type="Resource" uid="uid://bvp0vv0d033tm" path="res://level/level_2_enemy_pool.tres" id="4_3y6ec"]
+[ext_resource type="Resource" uid="uid://cmt4a33msmqm3" path="res://enemies/blobber/blobber_green_stats.tres" id="5_hhftf"]
+[ext_resource type="Resource" uid="uid://74ilwj032200" path="res://enemies/blobber/blobber_red_stats.tres" id="6_bnfwc"]
+[ext_resource type="Resource" uid="uid://cepy6a1j8ci1k" path="res://enemies/blobber/blobber_yellow_stats.tres" id="7_vhgw2"]
+[ext_resource type="Script" path="res://custom_resources/enemy_pool.gd" id="8_3pkdr"]
+[ext_resource type="Resource" uid="uid://dq1ah1rd4j0ok" path="res://enemies/blobber/blobber_blue_stats.tres" id="9_egbwk"]
+
+[sub_resource type="Resource" id="Resource_otb1j"]
+script = ExtResource("8_3pkdr")
+enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("5_hhftf"), ExtResource("6_bnfwc"), ExtResource("7_vhgw2")])
+
+[sub_resource type="Resource" id="Resource_q323a"]
+script = ExtResource("8_3pkdr")
+enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("5_hhftf"), ExtResource("9_egbwk"), ExtResource("6_bnfwc"), ExtResource("7_vhgw2")])
+
+[sub_resource type="Resource" id="Resource_4e2tu"]
+script = ExtResource("8_3pkdr")
+enemies = Array[Resource("res://custom_resources/enemy_stats.gd")]([ExtResource("9_egbwk"), ExtResource("9_egbwk"), ExtResource("5_hhftf"), ExtResource("5_hhftf"), ExtResource("6_bnfwc"), ExtResource("6_bnfwc"), ExtResource("7_vhgw2"), ExtResource("7_vhgw2")])
 
 [node name="Game" type="Node"]
 script = ExtResource("1_vy55k")
+start_character = ExtResource("2_b626w")
+level_enemy_pools = Array[ExtResource("8_3pkdr")]([ExtResource("3_6qpnm"), ExtResource("3_6qpnm"), ExtResource("4_3y6ec"), SubResource("Resource_otb1j"), SubResource("Resource_q323a"), SubResource("Resource_4e2tu")])
 
 [node name="CurrentView" type="Node" parent="."]
