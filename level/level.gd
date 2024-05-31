@@ -13,7 +13,6 @@ var enemies_in_level: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	@warning_ignore("return_value_discarded")
 	Events.enemy_died.connect(_on_enemy_died)
 	for child in get_children():
 		if child is EnemySpawner:

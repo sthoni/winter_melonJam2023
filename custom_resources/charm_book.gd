@@ -14,6 +14,5 @@ func add_charm(charm: Charm) -> void:
 func _to_string() -> String:
 	var _charm_strings: PackedStringArray = []
 	for i: int in charms.size():
-		@warning_ignore("return_value_discarded")
 		_charm_strings.append("%s: %s" % [i + 1, charms[i].id])
 	return "\n".join(_charm_strings)

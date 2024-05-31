@@ -17,7 +17,6 @@ func _ready() -> void:
 	audio_player.stream = step_sound
 
 func _physics_process(_delta: float) -> void:
-	@warning_ignore("return_value_discarded")
 	actor.move_and_slide()
 	if actor.velocity.x < 0:
 		actor.sprite.frame = 1

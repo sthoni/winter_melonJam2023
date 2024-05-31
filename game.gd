@@ -18,26 +18,18 @@ var current_level: int
 var pause_possible: bool
 
 func _ready() -> void:
-	@warning_ignore("return_value_discarded")
 	Events.new_game_pressed.connect(_on_new_game_pressed)
-	@warning_ignore("return_value_discarded")
 	Events.main_menu_pressed.connect(_on_main_menu_pressed)
-	@warning_ignore("return_value_discarded")
 	Events.exit_game_pressed.connect(_on_exit_game_pressed)
-	@warning_ignore("return_value_discarded")
 	Events.character_died.connect(_on_character_died)
-	@warning_ignore("return_value_discarded")
 	Events.all_enemies_died.connect(_on_all_enemies_died)
 
 	MusicPlayer.play(music, true)
-
-	@warning_ignore("return_value_discarded")
 	_change_view(MAIN_MENU)
 
 func _change_view(scene: PackedScene) -> Node:
 	if current_view.get_child_count() > 0:
 		current_view.get_child(0).queue_free()
-
 	get_tree().paused = false
 	var new_view := scene.instantiate()
 	current_view.add_child(new_view)
@@ -51,7 +43,6 @@ func _on_new_game_pressed() -> void:
 
 func _on_main_menu_pressed() -> void:
 	pause_possible = false
-	@warning_ignore("return_value_discarded")
 	_change_view(MAIN_MENU)
 
 func _on_exit_game_pressed() -> void:
@@ -59,7 +50,6 @@ func _on_exit_game_pressed() -> void:
 
 func _on_all_enemies_died() -> void:
 	print("[DEBUG] Alle Gegner besiegt. Pause...")
-	@warning_ignore("return_value_discarded")
 	get_tree().create_timer(2, false).timeout.connect(
 		func() -> void:
 			if pause_possible:
@@ -76,7 +66,6 @@ func start_next_level() -> void:
 
 func _on_character_died() -> void:
 	pause_possible = false
-	@warning_ignore("return_value_discarded")
 	_change_view(GAME_OVER_MENU)
 
 # TODO: Daten des Durchgangs könnten noch gespeichert werden.
@@ -91,7 +80,6 @@ func _input(event: InputEvent) -> void:
 			_unpause()
 		else:
 			_pause()
-			
 		get_viewport().set_input_as_handled()
 
 func _pause() -> void:
