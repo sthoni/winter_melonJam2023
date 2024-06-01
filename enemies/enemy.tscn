@@ -40,10 +40,10 @@ hframes = 2
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("4_qdgj5")]
 actor = NodePath("..")
 
-[node name="EnemyMovementVelocityKi" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("4_f4wyv")
-actor = NodePath("..")
-
-[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("6_4mkwq")]
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor", "velocity_input") instance=ExtResource("6_4mkwq")]
 actor = NodePath("..")
 step_sound = ExtResource("5_aba5e")
+velocity_input = NodePath("VelocityInput")
+
+[node name="VelocityInput" type="Node" parent="MovementComponent"]
+script = ExtResource("4_f4wyv")

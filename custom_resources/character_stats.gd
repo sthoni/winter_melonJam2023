@@ -23,10 +23,16 @@ func reset_mana() -> void:
 func can_cast_charm(charm: Charm) -> bool:
 	return mana >= charm.cost
 
-func create_instance() -> Resource:
+func _on_stats_changed() -> void:
+	stats_changed.emit()
+
+func create_instance() -> CharacterStats:
 	var instance: CharacterStats = self.duplicate()
 	instance.reset_mana()
-	instance.charm_book = instance.starting_charms.duplicate(true)
 	instance.health_stats = health_stats.create_instance()
 	instance.movement_stats = movement_stats.create_instance()
+	instance.charm_book = instance.starting_charms.create_instance()
+	instance.health_stats.health_stats_changed.connect(instance._on_stats_changed)
+	instance.movement_stats.movement_stats_changed.connect(instance._on_stats_changed)
+	instance.charm_book.charm_selected_changed.connect(instance._on_stats_changed)
 	return instance

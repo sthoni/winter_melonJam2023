@@ -1,13 +1,14 @@
 class_name Wand
 extends Marker2D
 
+@export var actor: Character
+@export var cast_input: CastInput
+
 @onready var wait := 0.0
 @onready var is_charm_loading := false
-@onready var charm_book: CharmBook = preload ("res://charms/player_charm_book.tres")
 @onready var projectile_scene: PackedScene = preload ("res://charms/projectile.tscn")
 @onready var cast_timer: Timer = $CastTimer
 
-var charm_selected: Charm
 var charm_casting: Charm
 
 # Hack um durch die Charms zu switchen
@@ -15,33 +16,39 @@ var charm_index := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	charm_selected = charm_book.charms[charm_index]
 	cast_timer.stop()
-	Events.charm_changed.emit(charm_selected)
 
 # Mit Q und E durch Charms switchen
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("charm_switch_right"):
-		if charm_index < charm_book.charms.size() - 1:
+		if charm_index < actor.stats.charm_book.charms.size() - 1:
 			charm_index += 1
 		else:
 			charm_index = 0
-		charm_selected = charm_book.charms[charm_index]
-		Events.charm_changed.emit(charm_selected)
+		actor.stats.charm_book.charm_selected = actor.stats.charm_book.charms[charm_index]
 	if event.is_action_pressed("charm_switch_left"):
 		if charm_index > 0:
 			charm_index -= 1
 		else:
-			charm_index = charm_book.charms.size() - 1
-		charm_selected = charm_book.charms[charm_index]
-		Events.charm_changed.emit(charm_selected)
+			charm_index = actor.stats.charm_book.charms.size() - 1
+		actor.stats.charm_book.charm_selected = actor.stats.charm_book.charms[charm_index]
+
+func _physics_process(_delta: float) -> void:
+	if cast_input.get_cast_intention():
+		var cast_direction := cast_input.get_cast_direction()
+		if cast_direction.x < 0:
+			actor.sprite.frame = 1
+		elif cast_direction.x > 0:
+			actor.sprite.frame = 0
+		rotation = cast_direction.angle() + PI / 2
+		request_cast()
 
 func request_cast() -> void:
 	if cast_timer.is_stopped():
 		prepare_cast()
 
 func prepare_cast() -> void:
-	charm_casting = charm_selected
+	charm_casting = actor.stats.charm_book.charm_selected
 	cast_timer.wait_time = charm_casting.cast_time
 	cast_timer.start()
 	SfxPlayer.play(charm_casting.sound)
