@@ -2,7 +2,7 @@ class_name Level
 extends Node2D
 
 @export var enemy_pool: EnemyPool
-@export var char_stats: CharacterStats
+@export var char_stats: CharacterStats: set = set_char_stats
 
 @onready var spawners: Array[EnemySpawner]
 @onready var pickable_spawner: PickableSpawner = $PickableSpawner
@@ -18,10 +18,14 @@ func _ready() -> void:
 		if child is EnemySpawner:
 			spawners.append(child)
 
+func set_char_stats(value: CharacterStats) -> void:
+	if not is_node_ready():
+		await ready
+	character.stats = value
+	character_stats_ui.char_stats = value
+
 func start_level() -> void:
 	get_tree().paused = false
-	character.stats = char_stats
-	character_stats_ui.char_stats = char_stats
 	spawn_enemies()
 
 func spawn_pickable(pos: Vector2) -> void:

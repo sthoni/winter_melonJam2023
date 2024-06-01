@@ -9,7 +9,8 @@ size = Vector2(12.9047, 18.2041)
 
 [node name="Projectile" type="Area2D"]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 7
+input_pickable = false
 script = ExtResource("1_5oisb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,10 +22,9 @@ shape = SubResource("RectangleShape2D_huajg")
 [node name="AreaOfEffect" type="Area2D" parent="."]
 scale = Vector2(1, 0.992758)
 collision_layer = 0
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfEffect"]
 shape = SubResource("CircleShape2D_vaa08")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

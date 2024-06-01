@@ -116,7 +116,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_iiynm")
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" groups=["level"]]
 script = ExtResource("1_c5ve1")
 enemy_pool = ExtResource("3_58fxk")
 char_stats = ExtResource("10_xvltc")

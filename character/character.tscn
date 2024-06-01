@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b430b0ffb7o5l"]
+[gd_scene load_steps=12 format=3 uid="uid://b430b0ffb7o5l"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_40dlu"]
 [ext_resource type="Resource" uid="uid://wjc0mmxfdygs" path="res://character/character.tres" id="2_07pdc"]
-[ext_resource type="Script" path="res://components/wand.gd" id="3_2y6lr"]
 [ext_resource type="Texture2D" uid="uid://u7c5dckamxj8" path="res://assets/player.png" id="3_e6ta1"]
+[ext_resource type="PackedScene" uid="uid://ct6ee8ksgnr4l" path="res://components/cast_component.tscn" id="3_fiwrb"]
+[ext_resource type="Script" path="res://character/character_cast_input.gd" id="4_2xks6"]
 [ext_resource type="Script" path="res://character/character_movement_velocity_input.gd" id="5_sftdt"]
 [ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://components/movement_component.tscn" id="6_7eyby"]
 [ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="8_632va"]
@@ -19,15 +20,6 @@ collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_40dlu")
 stats = ExtResource("2_07pdc")
-
-[node name="Wand" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(-3, 3)
-gizmo_extents = 37.0
-script = ExtResource("3_2y6lr")
-
-[node name="CastTimer" type="Timer" parent="Wand"]
-one_shot = true
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
@@ -45,16 +37,22 @@ unique_name_in_owner = true
 texture = ExtResource("3_e6ta1")
 hframes = 2
 
-[node name="PlayerMovementVelocityInput" type="Node" parent="." node_paths=PackedStringArray("actor")]
-script = ExtResource("5_sftdt")
-actor = NodePath("..")
-
-[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("6_7eyby")]
+[node name="MovementComponent" parent="." node_paths=PackedStringArray("actor", "velocity_input") instance=ExtResource("6_7eyby")]
 actor = NodePath("..")
 step_sound = ExtResource("8_632va")
+velocity_input = NodePath("VelocityInput")
+
+[node name="VelocityInput" type="Node" parent="MovementComponent"]
+script = ExtResource("5_sftdt")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("8_dq0lq")]
 actor = NodePath("..")
 
-[connection signal="timeout" from="Wand/CastTimer" to="Wand" method="cast"]
+[node name="CastComponent" parent="." node_paths=PackedStringArray("actor", "cast_input") instance=ExtResource("3_fiwrb")]
+actor = NodePath("..")
+cast_input = NodePath("CastInput")
+
+[node name="CastInput" type="Node" parent="CastComponent"]
+script = ExtResource("4_2xks6")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

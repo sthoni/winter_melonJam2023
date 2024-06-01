@@ -77,15 +77,7 @@ func _on_character_died() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and pause_possible:
 		if pause_menu.visible:
-			_unpause()
+			pause_menu._unpause()
 		else:
-			_pause()
+			pause_menu._pause()
 		get_viewport().set_input_as_handled()
-
-func _pause() -> void:
-	pause_menu.show()
-	get_tree().paused = true
-
-func _unpause() -> void:
-	pause_menu.hide()
-	get_tree().paused = false

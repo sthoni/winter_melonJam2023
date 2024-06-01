@@ -1,9 +1,5 @@
 extends Node
 
-# Charm-related events
-signal charm_cast(charm: Charm)
-signal charm_changed(charm: Charm)
-
 # Character-related events
 signal character_hit
 signal character_died

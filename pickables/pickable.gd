@@ -11,12 +11,12 @@ func _on_pick_up_area_body_entered(body: Actor) -> void:
 	match self.kind:
 		Global.PickableKind.PLATANO:
 			if body is Enemy:
-				body.stats.movement_stats.slow_down(50)
+				body.stats.movement_stats.slow_down(10)
 			if body is Character:
-				body.stats.movement_stats.slow_down(50)
+				body.stats.movement_stats.slow_down(10)
 		Global.PickableKind.ARMOR1:
 			if body is Enemy:
-				body.stats.health_stats.heal(10)
+				body.stats.health_stats.heal(1)
 			if body is Character:
-				body.stats.health_stats.heal(50)
+				body.stats.health_stats.heal(5)
 	_on_pickable_picked_up()

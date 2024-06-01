@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwak22lnr2e1x" path="res://assets/charms/0_default.png" id="1_gy3mi"]
 [ext_resource type="Script" path="res://charms/plasmaball.gd" id="2_ls7kl"]
-[ext_resource type="AudioStream" uid="uid://cj1e7ba7ib4rk" path="res://assets/charms/default_soundeffect.wav" id="3_364os"]
+[ext_resource type="AudioStream" uid="uid://7sp8nwi6wjl0" path="res://assets/charms/red_soundeffect.wav" id="3_as0b0"]
 
 [resource]
 script = ExtResource("2_ls7kl")
@@ -10,8 +10,8 @@ id = "plasmaball"
 type = 0
 cost = 1
 speed = 300
-area_of_effect = 1
+area_of_effect = 1.0
 cast_time = 0.2
 icon = ExtResource("1_gy3mi")
 tooltip_text = ""
-sound = ExtResource("3_364os")
+sound = ExtResource("3_as0b0")

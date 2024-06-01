@@ -2,16 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://bf61scxp2t425" path="res://assets/charms/1_red.png" id="1_0jidi"]
 [ext_resource type="Script" path="res://charms/firebolt.gd" id="1_kpdsp"]
-[ext_resource type="AudioStream" uid="uid://h3n7vtrv5sbm" path="res://assets/charms/default_spell.wav" id="3_wr03r"]
+[ext_resource type="AudioStream" uid="uid://cj1e7ba7ib4rk" path="res://assets/charms/default_soundeffect.wav" id="3_0b3id"]
 
 [resource]
 script = ExtResource("1_kpdsp")
 id = "firebolt"
 type = 0
 cost = 2
-speed = 250
-area_of_effect = 2
-cast_time = 4.0
+speed = 300
+area_of_effect = 1.5
+cast_time = 1.16
 icon = ExtResource("1_0jidi")
 tooltip_text = ""
-sound = ExtResource("3_wr03r")
+sound = ExtResource("3_0b3id")

@@ -1,14 +1,14 @@
 class_name EnemyMovementVelocityKi
-extends Node
+extends VelocityInput
 
-@export var actor: Actor
 var player: Character
 
-func _physics_process(delta: float) -> void:
+func get_velocity(delta: float) -> Vector2:
 	player = get_tree().get_first_node_in_group("player")
 	if player:
 		var direction := player.global_position - actor.position
 		if direction.length() > 0:
-			actor.velocity = actor.velocity.move_toward(direction.normalized() * actor.stats.movement_stats.speed, actor.stats.movement_stats.acceleration * delta)
+			velocity = actor.velocity.move_toward(direction.normalized() * actor.stats.movement_stats.speed, actor.stats.movement_stats.acceleration * delta)
 		else:
-			actor.velocity = actor.velocity.move_toward(Vector2.ZERO, actor.stats.movement_stats.friction * delta)
+			velocity = actor.velocity.move_toward(Vector2.ZERO, actor.stats.movement_stats.friction * delta)
+	return velocity
