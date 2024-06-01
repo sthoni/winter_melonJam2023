@@ -21,13 +21,6 @@ motion_mode = 1
 script = ExtResource("1_40dlu")
 stats = ExtResource("2_07pdc")
 
-[node name="CastComponent" parent="." node_paths=PackedStringArray("actor", "cast_input") instance=ExtResource("3_fiwrb")]
-actor = NodePath("..")
-cast_input = NodePath("CastInput")
-
-[node name="CastInput" type="Node" parent="CastComponent"]
-script = ExtResource("4_2xks6")
-
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 5
@@ -54,5 +47,12 @@ script = ExtResource("5_sftdt")
 
 [node name="HealthComponent" parent="." node_paths=PackedStringArray("actor") instance=ExtResource("8_dq0lq")]
 actor = NodePath("..")
+
+[node name="CastComponent" parent="." node_paths=PackedStringArray("actor", "cast_input") instance=ExtResource("3_fiwrb")]
+actor = NodePath("..")
+cast_input = NodePath("CastInput")
+
+[node name="CastInput" type="Node" parent="CastComponent"]
+script = ExtResource("4_2xks6")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

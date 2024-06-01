@@ -1,17 +1,25 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=6 format=3 uid="uid://dq1ah1rd4j0ok"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=9 format=3 uid="uid://dq1ah1rd4j0ok"]
 
 [ext_resource type="Script" path="res://custom_resources/health_stats.gd" id="1_xp6cc"]
 [ext_resource type="Resource" uid="uid://coy5jvnkq8ot2" path="res://enemies/enemy_movement_stats.tres" id="2_cbwp3"]
 [ext_resource type="Script" path="res://custom_resources/enemy_stats.gd" id="3_ge8r2"]
 [ext_resource type="Texture2D" uid="uid://v1yrsekymuwk" path="res://assets/enemies/enemy_blue.png" id="4_gredg"]
+[ext_resource type="Script" path="res://custom_resources/charm_book.gd" id="5_4ed63"]
+[ext_resource type="Resource" uid="uid://cckp81d5bglf2" path="res://charms/plasmaball.tres" id="5_lshv1"]
 
 [sub_resource type="Resource" id="Resource_yvbnr"]
 script = ExtResource("1_xp6cc")
 max_health = 7
 
+[sub_resource type="Resource" id="Resource_tefqg"]
+script = ExtResource("5_4ed63")
+charms = Array[Resource("res://custom_resources/charm.gd")]([ExtResource("5_lshv1")])
+
 [resource]
 script = ExtResource("3_ge8r2")
 kind = 2
 sprite = ExtResource("4_gredg")
+starting_charms = SubResource("Resource_tefqg")
+max_mana = 0
 movement_stats = ExtResource("2_cbwp3")
 health_stats = SubResource("Resource_yvbnr")

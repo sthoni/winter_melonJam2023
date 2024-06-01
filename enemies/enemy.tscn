@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://kh3gp6km022u"]
+[gd_scene load_steps=17 format=3 uid="uid://kh3gp6km022u"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_kc1q1"]
 [ext_resource type="Script" path="res://custom_resources/health_stats.gd" id="2_yhy1q"]
@@ -8,15 +8,24 @@
 [ext_resource type="Script" path="res://enemies/enemy_movement_velocity_ki.gd" id="4_f4wyv"]
 [ext_resource type="PackedScene" uid="uid://wb64fs4i4iwv" path="res://components/health_component.tscn" id="4_qdgj5"]
 [ext_resource type="AudioStream" uid="uid://rmd4u127qfir" path="res://assets/audio/step.wav" id="5_aba5e"]
+[ext_resource type="Script" path="res://custom_resources/charm_book.gd" id="5_mjiuj"]
 [ext_resource type="PackedScene" uid="uid://cvmb3p78x728s" path="res://components/movement_component.tscn" id="6_4mkwq"]
+[ext_resource type="PackedScene" uid="uid://ct6ee8ksgnr4l" path="res://components/cast_component.tscn" id="11_roc8a"]
+[ext_resource type="Script" path="res://enemies/blobber/blobber_cast_input.gd" id="12_4lfru"]
 
 [sub_resource type="Resource" id="Resource_0a1fg"]
 script = ExtResource("2_yhy1q")
 max_health = 5
 
+[sub_resource type="Resource" id="Resource_4486o"]
+script = ExtResource("5_mjiuj")
+charms = Array[Resource("res://custom_resources/charm.gd")]([])
+
 [sub_resource type="Resource" id="Resource_8c1b4"]
 script = ExtResource("4_604wb")
 kind = 0
+starting_charms = SubResource("Resource_4486o")
+max_mana = 0
 movement_stats = ExtResource("3_o8bjb")
 health_stats = SubResource("Resource_0a1fg")
 
@@ -47,3 +56,11 @@ velocity_input = NodePath("VelocityInput")
 
 [node name="VelocityInput" type="Node" parent="MovementComponent"]
 script = ExtResource("4_f4wyv")
+
+[node name="CastComponent" parent="." node_paths=PackedStringArray("actor", "cast_input") instance=ExtResource("11_roc8a")]
+actor = NodePath("..")
+cast_input = NodePath("BlobberCastInput")
+
+[node name="BlobberCastInput" type="Node" parent="CastComponent" node_paths=PackedStringArray("actor")]
+script = ExtResource("12_4lfru")
+actor = NodePath("../..")

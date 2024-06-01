@@ -4,7 +4,7 @@ extends Control
 func _on_exit_pressed() -> void:
 	Events.exit_game_pressed.emit()
 
-func _on_continue_pressed() -> void:
+func _on_new_game_pressed() -> void:
 	Events.new_game_pressed.emit()
 
 func _on_main_menu_pressed() -> void:

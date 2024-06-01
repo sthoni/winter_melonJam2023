@@ -8,3 +8,6 @@ func get_cast_intention() -> bool:
 
 func get_cast_direction() -> Vector2:
 	return cast_direction
+
+func get_cast_switch() -> int:
+	return 0

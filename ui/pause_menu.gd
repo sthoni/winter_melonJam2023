@@ -11,3 +11,11 @@ func _on_main_menu_pressed() -> void:
 
 func _on_exit_pressed() -> void:
 	Events.exit_game_pressed.emit()
+
+func _pause() -> void:
+	show()
+	get_tree().paused = true
+
+func _unpause() -> void:
+	hide()
+	get_tree().paused = false

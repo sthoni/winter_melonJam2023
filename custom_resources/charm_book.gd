@@ -22,6 +22,13 @@ func select_charm(charm: Charm) -> void:
 	charm_selected = charm
 	charm_selected_changed.emit()
 
+func select_next_charm(switch: int) -> void:
+	if charms.size() == 0:
+		return
+	var charm_next_index := charms.find(charm_selected) + switch
+	var charm_next := charms[charm_next_index % charms.size()]
+	select_charm(charm_next)
+
 func create_instance() -> CharmBook:
 	var instance: CharmBook = self.duplicate()
 	if instance.charms.size() > 0:
