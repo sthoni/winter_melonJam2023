@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://vnt8cf2bo2k4"]
+
+[ext_resource type="Texture2D" uid="uid://0c5f3vhjvlei" path="res://assets/charms/2_fireballt.png" id="1_hfq12"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rrkw"]
+atlas = ExtResource("1_hfq12")
+region = Rect2(0, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rrkw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

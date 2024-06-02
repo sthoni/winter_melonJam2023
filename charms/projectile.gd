@@ -4,7 +4,7 @@ extends Area2D
 @export var charm: Charm: set = set_charm
 
 @onready var area_of_effect: Area2D = $AreaOfEffect
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var animatedSprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var caster: Actor
 
@@ -12,7 +12,7 @@ func set_charm(value: Charm) -> void:
 	if not is_node_ready():
 		await ready
 	charm = value
-	sprite.texture = charm.icon
+	animatedSprite.sprite_frames = charm.sprite_frames
 	area_of_effect.apply_scale(Vector2(charm.area_of_effect, charm.area_of_effect))
 
 func _physics_process(delta: float) -> void:

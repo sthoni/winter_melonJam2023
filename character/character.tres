@@ -10,8 +10,8 @@
 script = ExtResource("1_wwpm4")
 character_name = "Bertrand"
 description = ""
+sprite = ExtResource("4_w464b")
 starting_charms = ExtResource("2_8jd6r")
 max_mana = 10
-sprite = ExtResource("4_w464b")
 movement_stats = ExtResource("1_aclax")
 health_stats = ExtResource("1_eqy88")

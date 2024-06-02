@@ -13,6 +13,7 @@ enum Type {PROJECTILE}
 
 @export_group("Charms Visuals")
 @export var icon: Texture
+@export var sprite_frames: SpriteFrames
 @export_multiline var tooltip_text: String
 @export var sound: AudioStream
 
